@@ -1,26 +1,220 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-red: #B91C1C;
+  --brand-crimson: #9B1C1C;
+  --brand-beige: #F5E6D0;
+  --brand-black: #0A0A0A;
+  --brand-charcoal: #1A1A1A;
+
+  /* Motion tokens */
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Spacing scale */
+  --section-py: 6rem;
+  --section-px: 1.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--brand-beige);
+  color: var(--brand-black);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--brand-red);
+  color: var(--brand-beige);
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background: var(--brand-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-red);
+}
+
+/* ── Typography utilities ─────────────────────── */
+.font-display {
+  font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px currentColor;
+  color: transparent;
+}
+
+/* ── Hover underline — draws left-to-right ─────── */
+.hover-underline {
+  position: relative;
+}
+.hover-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.45s var(--ease-entrance);
+  transform-origin: left center;
+}
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* ── Button sweep — fills bg from left ────────── */
+.btn-sweep {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-sweep::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--sweep-color, #F5E6D0);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s var(--ease-entrance);
+  z-index: -1;
+}
+.btn-sweep:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── Section divider ──────────────────────────── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor 20%, currentColor 80%, transparent);
+  opacity: 0.1;
+}
+
+/* ── Animations ───────────────────────────────── */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes tickerReverse {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(var(--float-rotate, 0deg)); }
+  33%       { transform: translateY(-14px) rotate(calc(var(--float-rotate, 0deg) + 1.5deg)); }
+  66%       { transform: translateY(-7px)  rotate(calc(var(--float-rotate, 0deg) - 1deg)); }
+}
+
+@keyframes slowZoom {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes revealText {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes borderDraw {
+  0%   { clip-path: inset(0 100% 100% 0); }
+  25%  { clip-path: inset(0 100% 0 0); }
+  50%  { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+.animate-ticker         { animation: ticker         30s linear infinite; }
+.animate-ticker-slow    { animation: ticker         50s linear infinite; }
+.animate-ticker-reverse { animation: tickerReverse  35s linear infinite; }
+.animate-float          { animation: float           6s ease-in-out infinite; }
+.animate-slow-zoom      { animation: slowZoom       12s ease-in-out infinite alternate; }
+
+/* ── Grain overlay ────────────────────────────── */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
+}
+
+/* ── Section spacing ──────────────────────────── */
+/*  Baseline: py-24 (96px) mobile → py-36 (144px) large  */
+.section-padding {
+  padding-top: 6rem;      /* 96px */
+  padding-bottom: 6rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 9rem;    /* 144px */
+    padding-bottom: 9rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-padding {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .section-padding {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+}
+
+/* ── Focus ring (accessibility) ───────────────── */
+:focus-visible {
+  outline: 2px solid var(--brand-red);
+  outline-offset: 3px;
 }
