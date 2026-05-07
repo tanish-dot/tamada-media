@@ -20,8 +20,8 @@ const sizeClasses = {
 };
 
 const variantClasses = {
-  primary: "bg-[#B91C1C] text-[#F5E6D0] hover:bg-[#9B1C1C] border border-[#B91C1C]",
-  outline: "bg-transparent text-[#B91C1C] border border-[#B91C1C] hover:bg-[#B91C1C] hover:text-[#F5E6D0]",
+  primary: "bg-[#C9A84C] text-[#F5E6D0] hover:bg-[#A08030] border border-[#C9A84C]",
+  outline: "bg-transparent text-[#C9A84C] border border-[#C9A84C] hover:bg-[#C9A84C] hover:text-[#F5E6D0]",
   ghost: "bg-transparent text-[#0A0A0A] border border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-[#F5E6D0]",
   inverse: "bg-[#F5E6D0] text-[#0A0A0A] border border-[#F5E6D0] hover:bg-transparent hover:text-[#F5E6D0]",
 };

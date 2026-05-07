@@ -32,7 +32,7 @@ export default function SectionHeader({
   }[align];
 
   const textColor = invert ? "text-[#F5E6D0]" : "text-[#0A0A0A]";
-  const redColor = invert ? "text-[#F5E6D0]/60" : "text-[#B91C1C]";
+  const redColor = invert ? "text-[#F5E6D0]/60" : "text-[#C9A84C]";
   const subColor = invert ? "text-[#F5E6D0]/60" : "text-[#6B6B6B]";
 
   const headlineSize = size === "large"

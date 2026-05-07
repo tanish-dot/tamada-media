@@ -7,9 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/caas", label: "CaaS" },
   { href: "/work", label: "Work" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -58,12 +58,13 @@ export default function Navigation() {
       >
         <div className="flex items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 h-16 lg:h-20">
           {/* Logo */}
-          <Link
-            href="/"
-            style={{ marginLeft: "20px" }}
-            className={`font-display text-xl lg:text-2xl tracking-tight transition-colors duration-500 hover:text-[#B91C1C] ${textColor}`}
-          >
-            TAMADA MEDIA
+          <Link href="/" style={{ marginLeft: "-20px", marginTop: "15px" }} className="flex items-center">
+            <img
+              src="/logo.png"
+              alt="Tamada Media"
+              className="w-65 h-75 object-contain"
+              style={{ filter: "invert(1) hue-rotate(180deg)" }}
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -136,12 +137,12 @@ export default function Navigation() {
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
                     className={`group font-display text-[clamp(3rem,10vw,6rem)] leading-[1.0] block py-1 transition-colors duration-300 ${
-                      pathname === link.href ? "text-[#B91C1C]" : "text-[#F5E6D0] hover:text-[#B91C1C]"
+                      pathname === link.href ? "text-[#C9A84C]" : "text-[#F5E6D0] hover:text-[#C9A84C]"
                     }`}
                   >
                     <span className="relative">
                       {link.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#B91C1C] group-hover:w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                      <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#C9A84C] group-hover:w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                     </span>
                   </Link>
                 </motion.div>
@@ -156,10 +157,10 @@ export default function Navigation() {
             >
               <p className="text-[#F5E6D0]/30 text-[9px] tracking-[0.4em] uppercase mb-3">Contact</p>
               <a
-                href="mailto:saideep@tamadamedia.com"
-                className="text-[#F5E6D0]/60 text-sm hover:text-[#B91C1C] transition-colors duration-300 hover-underline"
+                href="mailto:info@tamadamedia.com"
+                className="text-[#F5E6D0]/60 text-sm hover:text-[#C9A84C] transition-colors duration-300 hover-underline"
               >
-                saideep@tamadamedia.com
+                info@tamadamedia.com
               </a>
             </motion.div>
           </motion.div>
@@ -192,7 +193,7 @@ function NavLink({
       {label}
       {/* Active dot */}
       {active && (
-        <span className="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-[3px] h-[3px] rounded-full bg-[#B91C1C]" />
+        <span className="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-[3px] h-[3px] rounded-full bg-[#C9A84C]" />
       )}
       {/* Hover underline draw */}
       {!active && (
@@ -206,11 +207,11 @@ function CtaButton() {
   return (
     <Link
       href="/careers"
-      className="relative ml-2 px-6 py-2.5 bg-[#B91C1C] text-[#F5E6D0] text-[10px] font-bold tracking-[0.2em] uppercase overflow-hidden group"
+      className="relative ml-2 px-6 py-2.5 bg-[#C9A84C] text-[#F5E6D0] text-[10px] font-bold tracking-[0.2em] uppercase overflow-hidden group"
     >
       {/* Sweep fill */}
       <span className="absolute inset-0 bg-[#F5E6D0] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-      <span className="relative z-10 group-hover:text-[#B91C1C] transition-colors duration-500">
+      <span className="relative z-10 group-hover:text-[#C9A84C] transition-colors duration-500">
         We&apos;re Hiring
       </span>
     </Link>

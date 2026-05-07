@@ -49,7 +49,7 @@ export default function Manifesto() {
         {/* Header */}
         <div style={{ marginBottom: "40px" }}>
           <motion.p
-            className="text-[10px] tracking-[0.35em] uppercase text-[#B91C1C] font-bold mb-4"
+            className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] font-bold mb-4"
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
           >
@@ -78,7 +78,7 @@ export default function Manifesto() {
           </div>
           <div className="overflow-hidden">
             <motion.h2
-              className="font-display text-[clamp(2rem,4.5vw,6.5rem)] leading-[0.88] text-[#B91C1C]"
+              className="font-display text-[clamp(2rem,4.5vw,6.5rem)] leading-[0.88] text-[#C9A84C]"
               initial={{ y: "105%" }}
               animate={inView ? { y: "0%" } : {}}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -98,8 +98,8 @@ export default function Manifesto() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="font-display text-sm text-[#B91C1C] w-10 shrink-0">{point.number}</span>
-              <h3 className="font-display text-xl lg:text-3xl text-[#F5E6D0] group-hover:text-[#B91C1C] transition-colors duration-300 w-full lg:w-80 shrink-0">
+              <span className="font-display text-sm text-[#C9A84C] w-10 shrink-0">{point.number}</span>
+              <h3 className="font-display text-xl lg:text-3xl text-[#F5E6D0] group-hover:text-[#C9A84C] transition-colors duration-300 w-full lg:w-80 shrink-0">
                 {point.title}
               </h3>
               <p className="text-[#F5E6D0]/50 text-sm lg:text-base leading-[1.8] lg:max-w-xl">

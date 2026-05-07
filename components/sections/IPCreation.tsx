@@ -4,7 +4,8 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { IP_NAMES, STATS_IP } from "@/data/content";
-import StatBlock from "@/components/ui/StatBlock";
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 const IP_LOGOS: Record<string, string> = {
   "Araathi":          "/ips/channels4_profile%20(7).jpg",
@@ -38,112 +39,132 @@ const IP_LOGOS: Record<string, string> = {
   "Wow Chepthe":      "/ips/channels4_profile%20(23).jpg",
 };
 
+const DISPLAY_IPS = (() => {
+  const arr = [...IP_NAMES];
+  [arr[0], arr[7]] = [arr[7], arr[0]];
+  [arr[1], arr[11]] = [arr[11], arr[1]];
+  [arr[7], arr[28]] = [arr[28], arr[7]];
+  return arr;
+})();
+
 export default function IPCreation() {
-  const ref = useRef(null);
+  const ref    = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="section-padding bg-[#F5E6D0] overflow-hidden">
-      <div ref={ref}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          {/* Left — text + stats */}
+    <section className="bg-[#080808] overflow-hidden" ref={ref}>
+
+      {/* ── Header block ── */}
+      <div className="section-padding pb-6">
+
+        <motion.p
+          className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] font-bold mb-8"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          IP Creation
+        </motion.p>
+
+        {/* Main heading row */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
           <div>
-            <motion.p
-              className="text-[10px] tracking-[0.35em] uppercase text-[#B91C1C] font-bold mb-6"
-              initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5 }}
-            >
-              IP Creation
-            </motion.p>
-
-            <motion.h2
-              className="font-display text-[clamp(3rem,6vw,8rem)] leading-[0.88] text-[#0A0A0A] mb-4"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            >
-              IP CREATION
-              <br />
-              ISN'T A PITCH.
-            </motion.h2>
-
-            <motion.div
-              className="bg-[#B91C1C] px-4 py-2 inline-block mb-8"
-              initial={{ scaleX: 0, originX: 0 }}
-              animate={inView ? { scaleX: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <span className="font-display text-[clamp(1.8rem,4vw,5rem)] text-[#F5E6D0] leading-tight block">
+            <div className="overflow-hidden">
+              <motion.h2
+                className="font-display text-[clamp(3rem,7vw,10rem)] leading-[0.87] text-[#F5E6D0]"
+                initial={{ y: "108%" }}
+                animate={inView ? { y: "0%" } : {}}
+                transition={{ duration: 0.95, delay: 0.08, ease: EASE }}
+              >
+                IP CREATION
+              </motion.h2>
+            </div>
+            <div className="overflow-hidden">
+              <motion.h2
+                className="font-display text-[clamp(3rem,7vw,10rem)] leading-[0.87]"
+                style={{ WebkitTextStroke: "2px #F5E6D0", color: "transparent" }}
+                initial={{ y: "108%" }}
+                animate={inView ? { y: "0%" } : {}}
+                transition={{ duration: 0.95, delay: 0.16, ease: EASE }}
+              >
+                ISN'T A PITCH.
+              </motion.h2>
+            </div>
+            <div className="overflow-hidden mt-2">
+              <motion.h2
+                className="font-display text-[clamp(3rem,7vw,10rem)] leading-[0.87] text-[#C9A84C]"
+                initial={{ y: "108%" }}
+                animate={inView ? { y: "0%" } : {}}
+                transition={{ duration: 0.95, delay: 0.24, ease: EASE }}
+              >
                 IT'S MUSCLE MEMORY.
-              </span>
+              </motion.h2>
+            </div>
+          </div>
+
+          {/* Stats — stacked vertically on right */}
+          <motion.div
+            className="flex flex-row lg:flex-col gap-px bg-[#F5E6D0]/[0.06] lg:min-w-[280px] shrink-0"
+            initial={{ opacity: 0, x: 30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
+          >
+            {STATS_IP.map((s, i) => (
+              <div key={i} className="bg-[#0E0E0E] px-7 py-5 flex items-center justify-between lg:flex-col lg:items-start lg:gap-1">
+                <p className="text-[9px] tracking-[0.3em] uppercase text-[#F5E6D0]/35 font-medium order-2 lg:order-none">{s.label}</p>
+                <p className="font-display text-[#C9A84C] leading-none" style={{ fontSize: "clamp(2rem,3.5vw,3.5rem)" }}>
+                  {s.value}{s.suffix}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        <motion.p
+          className="text-[#F5E6D0]/40 text-base leading-[1.8] max-w-2xl"
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.5, ease: EASE }}
+        >
+          Ideas, analytics, operations — all at once, all the time.
+          Consistent content creation is hard.{" "}
+          <strong className="text-[#C9A84C] font-bold">Not for us.</strong>
+        </motion.p>
+      </div>
+
+      {/* ── Dense IP grid ── */}
+      <div className="section-padding" style={{ paddingTop: "0.75rem", paddingBottom: 0 }}>
+        <div className="grid grid-cols-5 sm:grid-cols-7 lg:grid-cols-8 gap-2">
+          {DISPLAY_IPS.map((ip, i) => (
+            <motion.div
+              key={ip}
+              className="aspect-square bg-[#0D0D0D] flex flex-col items-center justify-center gap-1.5 group cursor-pointer overflow-hidden relative p-2"
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.35, delay: 0.55 + i * 0.02, ease: EASE }}
+              whileHover={{ backgroundColor: "#110000" }}
+            >
+              {IP_LOGOS[ip] ? (
+                <div className="relative w-full h-full">
+                  <Image
+                    src={IP_LOGOS[ip]}
+                    alt={ip}
+                    fill
+                    className="object-contain p-2 transition-transform duration-400 group-hover:scale-105"
+                  />
+                </div>
+              ) : (
+                <span className="text-[7px] text-[#F5E6D0]/40 group-hover:text-[#F5E6D0]/70 font-bold text-center leading-tight px-1 transition-colors duration-300">
+                  {ip}
+                </span>
+              )}
+              <div className="absolute inset-0 border border-transparent group-hover:border-[#C9A84C]/30 transition-colors duration-300" />
             </motion.div>
-
-            <motion.p
-              className="text-[#0A0A0A]/60 text-base lg:text-lg leading-[1.8] max-w-xl mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.55 }}
-            >
-              Consistent content creation is hard — ideas, analytics, operations — all at once.
-              Is it hard for us?{" "}
-              <strong className="text-[#B91C1C]">NAH.</strong>
-            </motion.p>
-
-            {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-px bg-[#0A0A0A]/10">
-              {STATS_IP.map((s, i) => (
-                <motion.div
-                  key={i}
-                  className="bg-[#F5E6D0] p-6 lg:p-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.65 + i * 0.08 }}
-                >
-                  <StatBlock value={s.value} suffix={s.suffix} label={s.label} />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right — IP logo mosaic */}
-          <div>
-            <motion.p
-              className="text-[10px] tracking-[0.3em] uppercase text-[#6B6B6B] font-bold mb-4"
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              Our IPs
-            </motion.p>
-
-            <div className="grid grid-cols-5 gap-4 lg:gap-5">
-              {IP_NAMES.map((ip, i) => (
-                <motion.div
-                  key={ip}
-                  className="aspect-square bg-[#0A0A0A] flex items-center justify-center p-2 group cursor-pointer overflow-hidden relative"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.4, delay: 0.4 + i * 0.025, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ backgroundColor: "#B91C1C" }}
-                >
-                  {IP_LOGOS[ip] ? (
-                    <Image
-                      src={IP_LOGOS[ip]}
-                      alt={ip}
-                      fill
-                      className="object-contain p-2 transition-all duration-500"
-                    />
-                  ) : (
-                    <span className="text-[8px] lg:text-[9px] text-[#F5E6D0]/50 group-hover:text-[#F5E6D0] font-bold text-center leading-tight transition-colors duration-300 px-1">
-                      {ip}
-                    </span>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
+
     </section>
   );
 }

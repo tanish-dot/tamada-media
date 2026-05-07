@@ -8,8 +8,8 @@ export const BRAND = {
   tagline: "Your Thumb Stops Here",
   mission: "Transform 100 Brands Into Creators",
   email: {
-    primary: "saideep@tamadamedia.com",
-    secondary: "monika@tamadamedia.com",
+    primary: "info@tamadamedia.com",
+    secondary: "info@tamadamedia.com",
   },
   // South script text for ticker
   southScript: ["తమడా", "ತಮಡಾ", "தமடா", "തമഡ", "তমডা", "TAMADA"],
@@ -98,14 +98,14 @@ export const BRAND_LOGOS = [
 ];
 
 export const MICRO_DRAMAS = [
-  { title: "Boyzzzz",              brand: "Mansion House", episodes: 26, views: "40M+", poster: "/micro-dramas/boyzzzz.jpg" },
-  { title: "Rao's vs Murthy's",    brand: "Hero",          episodes: 3,  views: "5M+",  poster: "/micro-dramas/raos-vs-murthys.jpg" },
-  { title: "Sudha Moorthy",        brand: "Kumar",         episodes: 5,  views: "10M+", poster: "/micro-dramas/sudha-moorthy.jpg" },
-  { title: "Arakai Animutyan",     brand: "Vstream",       episodes: 8,  views: "14M+", poster: "/micro-dramas/arakai-animutyan.jpg" },
-  { title: "Sotari Brothers",      brand: "Brand",         episodes: 6,  views: "8M+",  poster: "/micro-dramas/sotari-brothers.jpg" },
-  { title: "Andhra Ammayi Telangana Abbayi", brand: "Brand", episodes: 6, views: "16M+", poster: "/micro-dramas/andhra-ammayi-telangana-abbayi.jpg" },
-  { title: "Geetha Subramanyam",   brand: "Brand",         episodes: 6,  views: "8M+",  poster: "/micro-dramas/geetha-subramanyam.jpg" },
-  { title: "Anveshana",            brand: "Brand",         episodes: 3,  views: "5M+",  poster: "/micro-dramas/anveshana.jpg" },
+  { title: "Boyzzzz",                        type: "branded", brand: "Mansion House", episodes: 26, views: "40M+", poster: "/micro-dramas/boyzzzz.jpg",                        url: "https://youtu.be/pLocSq4jWLc?si=hL3yyQ0nWTVssS6V" },
+  { title: "Rao's vs Murthy's",              type: "branded", brand: "Hero",          episodes: 3,  views: "5M+",  poster: "/micro-dramas/raos-vs-murthys.jpg",                url: "https://youtu.be/9h2qE3lL6ys?si=NnAcPktZM9EBYMh5" },
+  { title: "Sudha Murthy",                   type: "branded", brand: "Kumar",         episodes: 5,  views: "10M+", poster: "/micro-dramas/sudha-moorthy.jpg",                  url: "https://youtu.be/8FAb7lqChWE?si=WXOVIkomi-vUGKZx" },
+  { title: "Avakai Animutyan",               type: "branded", brand: "X Stream",      episodes: 8,  views: "14M+", poster: "/micro-dramas/arakai-animutyan.jpg",               url: "https://youtu.be/qLxpDE89lfw?si=DEG7cBXwhFUeTjI5" },
+  { title: "Sotari Brothers",               type: "mini",    brand: null,            episodes: 6,  views: "8M+",  poster: "/micro-dramas/sotari-brothers.jpg",               url: "https://youtu.be/aaql6ScODVA?si=ujkUB_5Xc3BbA0Fw" },
+  { title: "Andhra Ammayi Telangana Abbayi", type: "mini",    brand: null,            episodes: 6,  views: "16M+", poster: "/micro-dramas/andhra-ammayi-telangana-abbayi.jpg", url: "https://youtu.be/bUcVWXbczXc?si=jk1jwXJmQ-nu9NI7" },
+  { title: "Geetha Subramanyam",             type: "mini",    brand: null,            episodes: 6,  views: "8M+",  poster: "/micro-dramas/geetha-subramanyam.jpg",             url: "https://youtu.be/hmcfwz2Mk-M?si=cpHk99ONUC8ufSWW" },
+  { title: "Anveshana",                      type: "mini",    brand: null,            episodes: 3,  views: "5M+",  poster: "/micro-dramas/anveshana.jpg",                      url: "https://youtu.be/T2tda-VELEs?si=OdthbdG5vHk5lyga" },
 ];
 
 export const PLATFORM_PARTNERSHIPS_STATS = [
@@ -195,7 +195,7 @@ export const SPIRAL_PROJECTS = [
     stat: "40M+ views",
     // slot: spiral-card-1 (aspect 3:4)
     bg: "#1A1A1A",
-    accent: "#B91C1C",
+    accent: "#C9A84C",
   },
   {
     id: 2,

@@ -2,68 +2,126 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { WHY_NOW_LINES } from "@/data/content";
 
-export default function WhyNow() {
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+const PANELS = [
+  {
+    number: "01",
+    pre: "Advertising fights for attention.",
+    bold: "Content earns it.",
+    bg: "#F5E6D0",
+    colorPre: "rgba(10,10,10,0.28)",
+    colorBold: "#0A0A0A",
+    colorNum: "rgba(10,10,10,0.07)",
+    colorTag: "#C9A84C",
+  },
+  {
+    number: "02",
+    pre: "Campaigns create spikes.",
+    bold: "Formats create habits.",
+    bg: "#0A0A0A",
+    colorPre: "rgba(245,230,208,0.25)",
+    colorBold: "#F5E6D0",
+    colorNum: "rgba(245,230,208,0.06)",
+    colorTag: "#C9A84C",
+  },
+  {
+    number: "03",
+    pre: "Reach can be bought.",
+    bold: "Loyalty can't.",
+    bg: "#C9A84C",
+    colorPre: "rgba(245,230,208,0.55)",
+    colorBold: "#F5E6D0",
+    colorNum: "rgba(245,230,208,0.12)",
+    colorTag: "#F5E6D0",
+  },
+];
+
+function Panel({ panel, index }: { panel: typeof PANELS[0]; index: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section className="section-padding bg-[#F5E6D0] overflow-hidden relative">
-      {/* Background large text */}
+    <div
+      ref={ref}
+      className="relative overflow-hidden"
+      style={{
+        background: panel.bg,
+        paddingTop: "clamp(4rem, 9vw, 8rem)",
+        paddingBottom: "clamp(4rem, 9vw, 8rem)",
+        paddingLeft: "clamp(1.5rem, 5vw, 7rem)",
+        paddingRight: "clamp(1.5rem, 5vw, 7rem)",
+      }}
+    >
+      {/* Giant ghosted number */}
       <div
-        className="absolute left-0 top-1/2 -translate-y-1/2 font-display text-[20vw] leading-none text-[#0A0A0A]/[0.04] select-none pointer-events-none"
+        className="absolute right-0 bottom-0 font-display leading-none select-none pointer-events-none"
+        style={{
+          fontSize: "clamp(14rem, 28vw, 34rem)",
+          color: panel.colorNum,
+          lineHeight: 0.85,
+          transform: "translate(5%, 18%)",
+        }}
         aria-hidden
       >
-        NOW
+        {panel.number}
       </div>
 
-      <div ref={ref} className="relative z-10">
+      <div className="relative z-10 max-w-5xl">
+        {/* Tag */}
         <motion.p
-          className="text-[10px] tracking-[0.35em] uppercase text-[#B91C1C] font-bold mb-10"
-          initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5 }}
+          className="text-[10px] tracking-[0.42em] uppercase font-bold mb-10"
+          style={{ color: panel.colorTag }}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.05 }}
         >
-          Why Now
+          Why Now — {panel.number}
         </motion.p>
 
-        <div className="flex flex-col gap-6 lg:gap-8 max-w-5xl">
-          {WHY_NOW_LINES.map((line, i) => {
-            const isLead = i < 3;
-            return (
-              <div key={i} className="overflow-hidden">
-                <motion.p
-                  className={`font-display leading-tight ${
-                    isLead
-                      ? "text-[clamp(1.8rem,4vw,5.5rem)] text-[#0A0A0A]"
-                      : "text-[clamp(1.2rem,2.5vw,3rem)] text-[#0A0A0A]/50"
-                  }`}
-                  initial={{ y: "110%", opacity: 0 }}
-                  animate={inView ? { y: "0%", opacity: 1 } : {}}
-                  transition={{
-                    duration: 0.75,
-                    delay: 0.2 + i * 0.12,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  {isLead && (
-                    <span className="text-[#B91C1C] mr-3">—</span>
-                  )}
-                  {line}
-                </motion.p>
-              </div>
-            );
-          })}
+        {/* Pre line */}
+        <div className="overflow-hidden mb-1">
+          <motion.p
+            className="font-display leading-[0.9]"
+            style={{
+              fontSize: "clamp(2.2rem, 5vw, 7rem)",
+              color: panel.colorPre,
+            }}
+            initial={{ y: "110%", skewY: 4 }}
+            animate={inView ? { y: "0%", skewY: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.15, ease: EASE }}
+          >
+            {panel.pre}
+          </motion.p>
         </div>
 
-        {/* Divider line */}
-        <motion.div
-          className="mt-16 h-px bg-[#0A0A0A]/10"
-          initial={{ scaleX: 0, originX: 0 }}
-          animate={inView ? { scaleX: 1 } : {}}
-          transition={{ duration: 1, delay: 0.9 }}
-        />
+        {/* Bold punchline */}
+        <div className="overflow-hidden">
+          <motion.p
+            className="font-display leading-[0.9]"
+            style={{
+              fontSize: "clamp(2.2rem, 5vw, 7rem)",
+              color: panel.colorBold,
+            }}
+            initial={{ y: "110%", skewY: 4 }}
+            animate={inView ? { y: "0%", skewY: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.28, ease: EASE }}
+          >
+            {panel.bold}
+          </motion.p>
+        </div>
       </div>
+    </div>
+  );
+}
+
+export default function WhyNow() {
+  return (
+    <section className="overflow-hidden">
+      {PANELS.map((panel, i) => (
+        <Panel key={i} panel={panel} index={i} />
+      ))}
     </section>
   );
 }

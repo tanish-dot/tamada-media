@@ -15,7 +15,7 @@ export default function WhyTamada() {
         {/* Header */}
         <div style={{ marginBottom: "40px" }}>
           <motion.p
-            className="text-[10px] tracking-[0.35em] uppercase text-[#B91C1C] font-bold mb-4"
+            className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] font-bold mb-4"
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
           >
@@ -30,7 +30,7 @@ export default function WhyTamada() {
             >
               THE NUMBERS
               <br />
-              SPEAK <span className="text-[#B91C1C]">LOUD.</span>
+              SPEAK <span className="text-[#C9A84C]">LOUD.</span>
             </motion.h2>
           </div>
         </div>
@@ -47,7 +47,7 @@ export default function WhyTamada() {
             >
               {/* Hover fill */}
               <motion.div
-                className="absolute inset-0 bg-[#B91C1C]/0 group-hover:bg-[#B91C1C]/10 transition-all duration-500"
+                className="absolute inset-0 bg-[#C9A84C]/0 group-hover:bg-[#C9A84C]/10 transition-all duration-500"
               />
               <div className="relative z-10">
                 <StatBlock value={s.value} suffix={s.suffix} label={s.label} invert size="large" />

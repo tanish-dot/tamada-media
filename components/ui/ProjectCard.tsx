@@ -15,6 +15,7 @@ interface ProjectCardProps {
   className?: string;
   slot?: string;
   poster?: string;
+  url?: string;
 }
 
 export default function ProjectCard({
@@ -25,13 +26,14 @@ export default function ProjectCard({
   views,
   brand,
   bg = "#1A1A1A",
-  accent = "#B91C1C",
+  accent = "#C9A84C",
   index = 0,
   className = "",
   slot,
   poster,
+  url,
 }: ProjectCardProps) {
-  return (
+  const card = (
     <motion.article
       className={`relative overflow-hidden group cursor-pointer aspect-[3/4] ${className}`}
       style={{ background: bg }}
@@ -67,8 +69,10 @@ export default function ProjectCard({
 
       {/* Gradient overlay bottom */}
       <div
-        className="absolute inset-x-0 bottom-0 h-3/4"
-        style={{ background: `linear-gradient(to top, ${bg} 0%, ${bg}99 50%, transparent 100%)` }}
+        className="absolute inset-x-0 bottom-0 h-4/5"
+        style={{ background: poster
+          ? "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.65) 50%, transparent 100%)"
+          : `linear-gradient(to top, ${bg} 0%, ${bg}cc 55%, transparent 100%)` }}
       />
 
       {/* Hover shimmer */}
@@ -113,4 +117,9 @@ export default function ProjectCard({
       />
     </motion.article>
   );
+
+  if (url) {
+    return <a href={url} target="_blank" rel="noopener noreferrer">{card}</a>;
+  }
+  return card;
 }

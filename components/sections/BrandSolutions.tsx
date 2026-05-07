@@ -4,15 +4,25 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { BRAND_SOLUTIONS_STATS, BRAND_LOGOS } from "@/data/content";
 import StatBlock from "@/components/ui/StatBlock";
-import LogoWall from "@/components/ui/LogoWall";
+
+// Split brands across 4 columns, doubled for seamless loop
+const chunk = (arr: string[], n: number) =>
+  Array.from({ length: n }, (_, i) =>
+    arr.filter((_, j) => j % n === i)
+  );
+
+const COLS = chunk(BRAND_LOGOS, 4).map((col) => [...col, ...col]);
+
+const DURATIONS = [34, 44, 38, 48];
+const REVERSE   = [false, true, false, true];
 
 export default function BrandSolutions() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="section-padding bg-[#B91C1C] overflow-hidden relative">
-      {/* Subtle noise */}
+    <section className="bg-[#080808] overflow-hidden relative">
+      {/* Noise grain */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
@@ -20,91 +30,107 @@ export default function BrandSolutions() {
       />
 
       <div ref={ref} className="relative z-10">
-        {/* Header row */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-20">
-          <div>
+
+        {/* ── Header + stats ── */}
+        <div className="section-padding pt-20 lg:pt-28 pb-16 lg:pb-20">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+            <div>
+              <motion.p
+                className="text-[10px] tracking-[0.42em] uppercase text-[#F5E6D0]/50 font-bold mb-5"
+                initial={{ opacity: 0 }}
+                animate={inView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.5 }}
+              >
+                Brand Solutions by Hashify
+              </motion.p>
+              <motion.h2
+                className="font-display text-[#F5E6D0] leading-[0.88]"
+                style={{ fontSize: "clamp(3rem, 6vw, 9rem)" }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                BRAND
+                <br />
+                SOLUTIONS.
+              </motion.h2>
+            </div>
+
             <motion.p
-              className="text-[10px] tracking-[0.35em] uppercase text-[#F5E6D0]/50 font-bold mb-4"
-              initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5 }}
-            >
-              Brand Solutions by Hashify
-            </motion.p>
-            <motion.h2
-              className="font-display text-[clamp(3rem,6vw,9rem)] leading-[0.88] text-[#F5E6D0]"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            >
-              BRAND
-              <br />
-              SOLUTIONS.
-            </motion.h2>
-          </div>
-
-          <motion.p
-            className="text-[#F5E6D0]/60 text-base lg:text-lg leading-[1.8] max-w-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.35 }}
-          >
-            We excel at connecting brands with their perfect audience, driving unparalleled engagement.
-            Your brand's success story is waiting to unfold.
-          </motion.p>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#F5E6D0]/15 mb-16">
-          {BRAND_SOLUTIONS_STATS.map((s, i) => (
-            <motion.div
-              key={i}
-              className="bg-[#B91C1C] px-6 lg:px-10 py-10 group cursor-default"
+              className="text-[#F5E6D0]/60 text-base lg:text-lg leading-[1.8] max-w-sm lg:text-right"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 + i * 0.09 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <StatBlock value={s.value} suffix={s.suffix} label={s.label} invert size="large" />
-            </motion.div>
-          ))}
+              We connect brands with their perfect audience.
+              Your success story is waiting to unfold.
+            </motion.p>
+          </div>
+
+          {/* Stats */}
+          <motion.div
+            className="grid grid-cols-2 lg:grid-cols-4 gap-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            {BRAND_SOLUTIONS_STATS.map((s, i) => (
+              <div key={i} className="bg-[#080808] px-6 lg:px-10 py-10">
+                <StatBlock value={s.value} suffix={s.suffix} label={s.label} invert size="large" />
+              </div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Logo wall heading */}
-        <motion.p
-          className="text-[10px] tracking-[0.35em] uppercase text-[#F5E6D0]/40 font-bold mb-6"
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          Few Among Many Campaigns
-        </motion.p>
+        {/* ── Vertical brand tile columns ── */}
+        <div className="border-t border-[#F5E6D0]/10 relative">
 
-        {/* Brand ticker rows */}
-        <motion.div
-          className="overflow-hidden flex flex-col gap-0 border-y border-[#F5E6D0]/10"
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.9 }}
-        >
-          {/* Row 1 — left */}
-          <div className="py-4 border-b border-[#F5E6D0]/10 flex whitespace-nowrap animate-ticker">
-            {Array(4).fill(BRAND_LOGOS.slice(0, 20)).flat().map((logo, i) => (
-              <span key={i} className="mx-8 font-display text-[clamp(0.85rem,1.4vw,1.1rem)] tracking-[0.18em] uppercase text-[#F5E6D0]/50 hover:text-[#F5E6D0] transition-colors duration-300 cursor-default shrink-0">
-                {logo}
-                <span className="mx-8 text-[#B91C1C]/60">·</span>
-              </span>
-            ))}
-          </div>
+          {/* Top + bottom gradient masks */}
+          <div className="absolute top-0 left-0 right-0 h-16 z-10 pointer-events-none"
+            style={{ background: "linear-gradient(to bottom, #080808 0%, transparent 100%)" }} />
+          <div className="absolute bottom-0 left-0 right-0 h-16 z-10 pointer-events-none"
+            style={{ background: "linear-gradient(to top, #080808 0%, transparent 100%)" }} />
 
-          {/* Row 2 — right */}
-          <div className="py-4 flex whitespace-nowrap animate-ticker-reverse">
-            {Array(4).fill(BRAND_LOGOS.slice(20)).flat().map((logo, i) => (
-              <span key={i} className="mx-8 font-display text-[clamp(0.85rem,1.4vw,1.1rem)] tracking-[0.18em] uppercase text-[#F5E6D0]/35 hover:text-[#F5E6D0] transition-colors duration-300 cursor-default shrink-0">
-                {logo}
-                <span className="mx-8 text-[#B91C1C]/40">·</span>
-              </span>
-            ))}
-          </div>
-        </motion.div>
+          <motion.div
+            className="flex gap-px overflow-hidden"
+            style={{ height: "480px" }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            {COLS.map((col, ci) => {
+              const animY = REVERSE[ci] ? ["-50%", "0%"] : ["0%", "-50%"];
+              return (
+                <div key={ci} className="flex-1 overflow-hidden border-r border-[#F5E6D0]/[0.08] last:border-r-0">
+                  <motion.div
+                    className="flex flex-col"
+                    animate={{ y: animY }}
+                    transition={{
+                      duration: DURATIONS[ci],
+                      ease: "linear",
+                      repeat: Infinity,
+                      repeatType: "loop",
+                    }}
+                  >
+                    {col.map((brand, bi) => (
+                      <div
+                        key={bi}
+                        className="group flex items-center justify-center px-4 py-6 border-b border-[#F5E6D0]/[0.08] cursor-default select-none"
+                        style={{ minHeight: "80px" }}
+                      >
+                        <span className="font-display text-center text-[#F5E6D0]/40 group-hover:text-[#F5E6D0] transition-colors duration-300 leading-tight"
+                          style={{ fontSize: "clamp(0.7rem, 1.1vw, 0.95rem)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
+                          {brand}
+                        </span>
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+              );
+            })}
+          </motion.div>
+        </div>
+
       </div>
     </section>
   );

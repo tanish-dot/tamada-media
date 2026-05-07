@@ -11,7 +11,7 @@ export default function SouthIdentity() {
   const bgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section className="section-padding bg-[#B91C1C] overflow-hidden relative min-h-[70vh] flex items-center">
+    <section className="section-padding bg-[#C9A84C] overflow-hidden relative min-h-[70vh] flex items-center">
       {/* Floating script text */}
       <motion.div
         className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
@@ -31,7 +31,7 @@ export default function SouthIdentity() {
               <motion.h2
                 className={`font-display leading-[0.9] ${
                   i === 2
-                    ? "text-[clamp(3rem,7vw,10rem)] bg-[#F5E6D0] text-[#B91C1C] inline-block px-4 py-1 mt-3"
+                    ? "text-[clamp(3rem,7vw,10rem)] bg-[#F5E6D0] text-[#C9A84C] inline-block px-4 py-1 mt-3"
                     : "text-[clamp(2.5rem,6vw,9rem)] text-[#F5E6D0]"
                 }`}
                 initial={{ y: "110%", opacity: 0 }}

@@ -22,7 +22,7 @@ const FOUNDERS = [
 ];
 
 // Single shared image slot for both founders together
-const FOUNDERS_IMAGE: string | null = null;
+const FOUNDERS_IMAGE: string | null = "/founders.png";
 
 export default function Founders() {
   const ref = useRef(null);
@@ -39,8 +39,8 @@ export default function Founders() {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6, ease: EASE }}
         >
-          <span className="block w-6 h-px bg-[#B91C1C]" />
-          <span className="text-[10px] tracking-[0.42em] uppercase text-[#B91C1C] font-bold">The People</span>
+          <span className="block w-6 h-px bg-[#C9A84C]" />
+          <span className="text-[10px] tracking-[0.42em] uppercase text-[#C9A84C] font-bold">The People</span>
         </motion.div>
 
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
@@ -59,7 +59,7 @@ export default function Founders() {
             ))}
             <div className="overflow-hidden">
               <motion.h2
-                className="font-display text-[clamp(3rem,7vw,9rem)] leading-[0.88] text-[#B91C1C]"
+                className="font-display text-[clamp(3rem,7vw,9rem)] leading-[0.88] text-[#C9A84C]"
                 initial={{ y: "106%" }}
                 animate={inView ? { y: "0%" } : {}}
                 transition={{ duration: 1.0, delay: 0.3, ease: EASE }}
@@ -83,7 +83,7 @@ export default function Founders() {
       {/* Shared founders photo */}
       <motion.div
         className="relative z-10 group w-full overflow-hidden mb-10"
-        style={{ aspectRatio: "16/7" }}
+        style={{ paddingBottom: "43.75%" }}
         data-slot="founders-together"
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -123,13 +123,13 @@ export default function Founders() {
         )}
 
         {/* Corner brackets */}
-        <span className="absolute top-0 left-0 w-8 h-[2px] bg-[#B91C1C]" />
-        <span className="absolute top-0 left-0 h-8 w-[2px] bg-[#B91C1C]" />
-        <span className="absolute bottom-0 right-0 w-8 h-[2px] bg-[#B91C1C]" />
-        <span className="absolute bottom-0 right-0 h-8 w-[2px] bg-[#B91C1C]" />
+        <span className="absolute top-0 left-0 w-8 h-[2px] bg-[#C9A84C]" />
+        <span className="absolute top-0 left-0 h-8 w-[2px] bg-[#C9A84C]" />
+        <span className="absolute bottom-0 right-0 w-8 h-[2px] bg-[#C9A84C]" />
+        <span className="absolute bottom-0 right-0 h-8 w-[2px] bg-[#C9A84C]" />
 
         {/* Bottom sweep on hover */}
-        <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#B91C1C] group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+        <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#C9A84C] group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
       </motion.div>
 
       {/* Founder info — two columns */}
@@ -147,7 +147,7 @@ export default function Founders() {
             >
               {f.name}
             </h3>
-            <p className="text-[10px] tracking-[0.35em] uppercase text-[#B91C1C] font-bold mb-6">
+            <p className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] font-bold mb-6">
               {f.title}
             </p>
             <div className="w-8 h-px bg-[#F5E6D0]/15 mb-6" />

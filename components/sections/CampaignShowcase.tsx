@@ -21,7 +21,7 @@ export default function CampaignShowcase() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="section-padding bg-[#F5E6D0] overflow-hidden">
+    <section ref={ref} className="section-padding bg-[#080808] overflow-hidden">
       <div>
 
         {/* ── Header ── */}
@@ -33,15 +33,15 @@ export default function CampaignShowcase() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, ease: EASE }}
             >
-              <span className="block w-6 h-px bg-[#B91C1C]" />
-              <span className="text-[10px] tracking-[0.42em] uppercase text-[#B91C1C] font-bold">
+              <span className="block w-6 h-px bg-[#C9A84C]" />
+              <span className="text-[10px] tracking-[0.42em] uppercase text-[#C9A84C] font-bold">
                 Campaign Showcase
               </span>
             </motion.div>
 
             <div className="overflow-hidden">
               <motion.h2
-                className="font-display text-[clamp(2.8rem,6vw,7.5rem)] leading-[0.88] text-[#0A0A0A]"
+                className="font-display text-[clamp(2.8rem,6vw,7.5rem)] leading-[0.88] text-[#F5E6D0]"
                 initial={{ y: "106%" }}
                 animate={inView ? { y: "0%" } : {}}
                 transition={{ duration: 1.0, delay: 0.1, ease: EASE }}
@@ -51,7 +51,7 @@ export default function CampaignShowcase() {
             </div>
             <div className="overflow-hidden">
               <motion.h2
-                className="font-display text-[clamp(2.8rem,6vw,7.5rem)] leading-[0.88] text-[#0A0A0A]"
+                className="font-display text-[clamp(2.8rem,6vw,7.5rem)] leading-[0.88] text-[#F5E6D0]"
                 initial={{ y: "106%" }}
                 animate={inView ? { y: "0%" } : {}}
                 transition={{ duration: 1.0, delay: 0.18, ease: EASE }}
@@ -61,7 +61,7 @@ export default function CampaignShowcase() {
             </div>
             <div className="overflow-hidden">
               <motion.h2
-                className="font-display text-[clamp(2.8rem,6vw,7.5rem)] leading-[0.88] text-[#B91C1C]"
+                className="font-display text-[clamp(2.8rem,6vw,7.5rem)] leading-[0.88] text-[#C9A84C]"
                 initial={{ y: "106%" }}
                 animate={inView ? { y: "0%" } : {}}
                 transition={{ duration: 1.0, delay: 0.26, ease: EASE }}
@@ -72,7 +72,7 @@ export default function CampaignShowcase() {
           </div>
 
           <motion.p
-            className="text-[#6B6B6B] text-base lg:text-lg max-w-sm leading-[1.8] lg:text-right"
+            className="text-[#F5E6D0]/35 text-base lg:text-lg max-w-sm leading-[1.8] lg:text-right"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.5, ease: EASE }}

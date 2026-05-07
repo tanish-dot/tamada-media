@@ -48,11 +48,12 @@ export default function Footer() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.85, ease: ENTRANCE_EASE }}
           >
-            <h2 className="font-display text-[clamp(4rem,8vw,7rem)] leading-[0.88] mb-8">
-              TAMADA
-              <br />
-              <span className="text-[#B91C1C]">MEDIA</span>
-            </h2>
+            <img
+              src="/logo.png"
+              alt="Tamada Media"
+              className="w-56 lg:w-72 h-auto object-contain mb-2 -ml-2"
+              style={{ filter: "invert(1) hue-rotate(180deg)" }}
+            />
             <p className="text-[#F5E6D0]/45 text-sm leading-[1.8] max-w-xs">
               South India&apos;s largest content ecosystem. Creator network, IP builder,
               OTT partner, production house.
@@ -100,16 +101,13 @@ export default function Footer() {
               Contact
             </h3>
             <div className="flex flex-col gap-5">
-              {[BRAND.email.primary, BRAND.email.secondary].map((email, i) => (
-                <a
-                  key={i}
-                  href={`mailto:${email}`}
-                  className="group relative w-fit text-[#F5E6D0]/50 hover:text-[#B91C1C] text-sm transition-colors duration-300 break-all"
-                >
-                  {email}
-                  <span className="absolute -bottom-[2px] left-0 w-0 h-[1px] bg-[#B91C1C]/60 group-hover:w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-                </a>
-              ))}
+              <a
+                href={`mailto:${BRAND.email.primary}`}
+                className="group relative w-fit text-[#F5E6D0]/50 hover:text-[#C9A84C] text-sm transition-colors duration-300 break-all"
+              >
+                {BRAND.email.primary}
+                <span className="absolute -bottom-[2px] left-0 w-0 h-[1px] bg-[#C9A84C]/60 group-hover:w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+              </a>
 
               <div className="mt-6 pt-6 border-t border-[#F5E6D0]/[0.07] space-y-1.5">
                 <p className="text-[9px] text-[#F5E6D0]/25 tracking-[0.3em] uppercase">
@@ -135,7 +133,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-3">
             <span className="text-[#F5E6D0]/18 text-xs">YouTube Enterprise Partner</span>
-            <span className="w-[3px] h-[3px] rounded-full bg-[#B91C1C]" />
+            <span className="w-[3px] h-[3px] rounded-full bg-[#C9A84C]" />
             <span className="text-[#F5E6D0]/18 text-xs">1 of 12 in India</span>
           </div>
         </motion.div>
@@ -147,10 +145,10 @@ export default function Footer() {
 function GetInTouchButton() {
   return (
     <a
-      href="mailto:saideep@tamadamedia.com"
-      className="relative inline-flex items-center gap-3 px-6 py-3 border border-[#B91C1C] text-[#B91C1C] text-[10px] font-bold tracking-[0.2em] uppercase overflow-hidden group transition-colors duration-500"
+      href="mailto:info@tamadamedia.com"
+      className="relative inline-flex items-center gap-3 px-6 py-3 border border-[#C9A84C] text-[#C9A84C] text-[10px] font-bold tracking-[0.2em] uppercase overflow-hidden group transition-colors duration-500"
     >
-      <span className="absolute inset-0 bg-[#B91C1C] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+      <span className="absolute inset-0 bg-[#C9A84C] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
       <span className="relative z-10 group-hover:text-[#F5E6D0] transition-colors duration-500">
         Get In Touch
       </span>

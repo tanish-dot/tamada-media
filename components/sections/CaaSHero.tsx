@@ -49,13 +49,13 @@ export default function CaaSHero() {
       <div
         aria-hidden
         className="pointer-events-none absolute bottom-0 right-0 w-[60vw] h-[60vh]"
-        style={{ background: "radial-gradient(ellipse at 80% 100%, rgba(185,28,28,0.12) 0%, transparent 65%)" }}
+        style={{ background: "radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.12) 0%, transparent 65%)" }}
       />
       {/* Top-left glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute top-0 left-0 w-[40vw] h-[40vh]"
-        style={{ background: "radial-gradient(ellipse at 0% 0%, rgba(185,28,28,0.05) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(ellipse at 0% 0%, rgba(201,168,76,0.05) 0%, transparent 70%)" }}
       />
 
       {/* Main content */}
@@ -72,8 +72,8 @@ export default function CaaSHero() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             >
-              <span className="block w-6 h-px bg-[#B91C1C]" />
-              <span className="text-[10px] tracking-[0.42em] uppercase text-[#B91C1C] font-bold">
+              <span className="block w-6 h-px bg-[#C9A84C]" />
+              <span className="text-[10px] tracking-[0.42em] uppercase text-[#C9A84C] font-bold">
                 Content as a Service
               </span>
             </motion.div>
@@ -101,7 +101,7 @@ export default function CaaSHero() {
             </div>
             <div>
               <motion.h1
-                className="font-display text-[clamp(4.5rem,11vw,14rem)] leading-[0.85] text-[#B91C1C]"
+                className="font-display text-[clamp(4.5rem,11vw,14rem)] leading-[0.85] text-[#C9A84C]"
                 initial={{ y: "110%", opacity: 0 }}
                 animate={inView ? { y: "0%", opacity: 1 } : {}}
                 transition={{ duration: 0.9, delay: 0.54, ease: EASE }}
@@ -138,7 +138,7 @@ export default function CaaSHero() {
               </div>
               <span className="block w-px h-5 bg-[#F5E6D0]/10" />
               <div className="text-center">
-                <p className="text-[9px] tracking-[0.36em] uppercase text-[#B91C1C]/70 font-bold">Entropy</p>
+                <p className="text-[9px] tracking-[0.36em] uppercase text-[#C9A84C]/70 font-bold">Entropy</p>
                 <p className="text-[8px] tracking-[0.25em] uppercase text-[#F5E6D0]/14 mt-1">viral spread</p>
               </div>
             </div>
@@ -181,7 +181,7 @@ export default function CaaSHero() {
           {tickerDouble.map((item, i) => (
             <span key={i} className="text-[9px] font-bold tracking-[0.38em] uppercase text-[#F5E6D0]/18 px-8 flex-shrink-0">
               {item}
-              <span className="mx-8 text-[#B91C1C]/50">·</span>
+              <span className="mx-8 text-[#C9A84C]/50">·</span>
             </span>
           ))}
         </motion.div>

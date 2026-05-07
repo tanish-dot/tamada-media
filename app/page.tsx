@@ -1,33 +1,31 @@
 import Hero from "@/components/sections/Hero";
 import WhatWeDo from "@/components/sections/WhatWeDo";
-import ServicesSection from "@/components/sections/ServicesSection";
-import Founders from "@/components/sections/Founders";
-import StatsSection from "@/components/sections/StatsSection";
-import IPCreation from "@/components/sections/IPCreation";
-import OTTSection from "@/components/sections/OTTSection";
-import BrandSolutions from "@/components/sections/BrandSolutions";
-import CampaignShowcase from "@/components/sections/CampaignShowcase";
-import MicroDramas from "@/components/sections/MicroDramas";
 import PlatformPartnerships from "@/components/sections/PlatformPartnerships";
-import AwardsSection from "@/components/sections/AwardsSection";
+import ContentShowcase from "@/components/sections/ContentShowcase";
+import BrandLogoGrid from "@/components/sections/BrandLogoGrid";
+import OriginalIPs from "@/components/sections/OriginalIPs";
+import Founders from "@/components/sections/Founders";
+import JoinUs from "@/components/sections/JoinUs";
 import FinalCTA from "@/components/sections/FinalCTA";
+import SectionTransition from "@/components/layout/SectionTransition";
+import MarqueeDivider from "@/components/ui/MarqueeDivider";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <WhatWeDo />
-      <StatsSection />
-      <ServicesSection />
-      <Founders />
-      <IPCreation />
-      <AwardsSection />
-      <OTTSection />
-      <BrandSolutions />
-      <CampaignShowcase />
-      <MicroDramas />
-      <PlatformPartnerships />
-      <FinalCTA />
+      <MarqueeDivider bg="red" speed={28} />
+      <SectionTransition><WhatWeDo /></SectionTransition>
+      <MarqueeDivider bg="dark" speed={35} reverse />
+      <SectionTransition><ContentShowcase /></SectionTransition>
+      <SectionTransition><PlatformPartnerships /></SectionTransition>
+      <MarqueeDivider bg="red" speed={25} />
+      <SectionTransition><BrandLogoGrid /></SectionTransition>
+      <SectionTransition><OriginalIPs /></SectionTransition>
+      <MarqueeDivider bg="dark" speed={40} reverse />
+      <SectionTransition><Founders /></SectionTransition>
+      <SectionTransition><JoinUs /></SectionTransition>
+      <SectionTransition><FinalCTA /></SectionTransition>
     </>
   );
 }

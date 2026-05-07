@@ -1,9 +1,9 @@
 import CaaSHero from "@/components/sections/CaaSHero";
-import Manifesto from "@/components/sections/Manifesto";
 import WhyNow from "@/components/sections/WhyNow";
+import CaseStudyASBL from "@/components/sections/CaseStudyASBL";
+import Manifesto from "@/components/sections/Manifesto";
 import WhyTamada from "@/components/sections/WhyTamada";
 import Process from "@/components/sections/Process";
-import CaseStudyASBL from "@/components/sections/CaseStudyASBL";
 import SouthIdentity from "@/components/sections/SouthIdentity";
 import FinalCTA from "@/components/sections/FinalCTA";
 
@@ -16,11 +16,11 @@ export default function CaaSPage() {
   return (
     <>
       <CaaSHero />
-      <div id="manifesto"><Manifesto /></div>
       <WhyNow />
+      <CaseStudyASBL />
+      <div id="manifesto"><Manifesto /></div>
       <WhyTamada />
       <Process />
-      <CaseStudyASBL />
       <SouthIdentity />
       <FinalCTA />
     </>

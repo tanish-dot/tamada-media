@@ -16,7 +16,7 @@ export default function OTTSection() {
         {/* Header */}
         <div style={{ marginBottom: "40px" }}>
           <motion.p
-            className="text-[10px] tracking-[0.35em] uppercase text-[#B91C1C] font-bold mb-4"
+            className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] font-bold mb-4"
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
           >
@@ -30,7 +30,7 @@ export default function OTTSection() {
           >
             SOUTH INDIA'S LARGEST
             <br />
-            <span className="text-[#B91C1C]">OTT PARTNER</span>
+            <span className="text-[#C9A84C]">OTT PARTNER</span>
             <br />
             FOR LONG-FORM SHOWS.
           </motion.h2>
@@ -66,7 +66,7 @@ export default function OTTSection() {
                     <img src={show.poster} alt={show.title} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                   )}
                   <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "16px", background: "linear-gradient(to top, rgba(0,0,0,0.85), transparent)" }}>
-                    <p style={{ color: "#B91C1C", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.25em", fontWeight: "bold", marginBottom: "4px" }}>{show.platform}</p>
+                    <p style={{ color: "#C9A84C", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.25em", fontWeight: "bold", marginBottom: "4px" }}>{show.platform}</p>
                     <h3 style={{ color: "#F5E6D0", fontFamily: "var(--font-display)", fontSize: "1.1rem" }}>{show.title}</h3>
                   </div>
                 </div>

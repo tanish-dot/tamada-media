@@ -32,9 +32,9 @@ export default function LogoWall({ logos, title, invert = false }: LogoWallProps
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.4, delay: i * 0.02 }}
-            whileHover={{ backgroundColor: "rgba(185,28,28,0.08)" }}
+            whileHover={{ backgroundColor: "rgba(201,168,76,0.08)" }}
           >
-            <span className={`text-[10px] lg:text-xs font-bold tracking-wider uppercase text-center ${text} group-hover:text-[#B91C1C] transition-colors duration-300`}>
+            <span className={`text-[10px] lg:text-xs font-bold tracking-wider uppercase text-center ${text} group-hover:text-[#C9A84C] transition-colors duration-300`}>
               {logo}
             </span>
           </motion.div>

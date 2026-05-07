@@ -13,7 +13,7 @@ function ProgressPip({ progress, index, total }: { progress: MotionValue<number>
   const scaleX = useTransform(progress, [index / total, (index + 1) / total], [0, 1]);
   return (
     <div className="h-[2px] rounded-full bg-[#F5E6D0]/15 overflow-hidden relative" style={{ width: 24 }}>
-      <motion.div className="absolute inset-0 bg-[#B91C1C] origin-left" style={{ scaleX }} />
+      <motion.div className="absolute inset-0 bg-[#C9A84C] origin-left" style={{ scaleX }} />
     </div>
   );
 }
@@ -141,7 +141,7 @@ export default function SpiralShowcase() {
           style={{ opacity: headerOpacity, y: headerY }}
         >
           <motion.p
-            className="text-[10px] tracking-[0.42em] uppercase text-[#B91C1C] font-bold mb-3"
+            className="text-[10px] tracking-[0.42em] uppercase text-[#C9A84C] font-bold mb-3"
             initial={{ opacity: 0, y: 14 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: EASE }}
@@ -162,7 +162,7 @@ export default function SpiralShowcase() {
               </div>
               <div className="overflow-hidden">
                 <motion.h2
-                  className="font-display text-[clamp(2rem,4.5vw,6rem)] leading-[0.87] text-[#B91C1C]"
+                  className="font-display text-[clamp(2rem,4.5vw,6rem)] leading-[0.87] text-[#C9A84C]"
                   initial={{ y: "106%" }}
                   animate={inView ? { y: "0%" } : {}}
                   transition={{ duration: 0.9, delay: 0.18, ease: EASE }}

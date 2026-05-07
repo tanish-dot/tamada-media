@@ -47,7 +47,7 @@ export default function StatBlock({ value, suffix = "", label, invert = false, s
 
   const displayValue = hasDecimal ? count.toFixed(1) : count.toLocaleString();
 
-  const textColor = invert ? "text-[#F5E6D0]" : "text-[#B91C1C]";
+  const textColor = invert ? "text-[#F5E6D0]" : "text-[#C9A84C]";
   const labelColor = invert ? "text-[#F5E6D0]/50" : "text-[#6B6B6B]";
 
   const numSize = size === "large"

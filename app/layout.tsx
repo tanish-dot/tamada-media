@@ -4,6 +4,8 @@ import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import CursorGlow from "@/components/layout/CursorGlow";
+import ScrollProgress from "@/components/layout/ScrollProgress";
+import AmbientBackground from "@/components/layout/AmbientBackground";
 
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-display",
@@ -40,12 +42,15 @@ export default function RootLayout({
       lang="en"
       className={`${barlowCondensed.variable} ${inter.variable}`}
     >
-      <body className="bg-[#F5E6D0] text-[#0A0A0A] antialiased overflow-x-hidden">
+      <body className="bg-[#080808] text-[#F5E6D0] antialiased overflow-x-hidden">
+        {/* Ambient background — blobs + topology */}
+        <AmbientBackground />
         {/* Global grain overlay */}
         <div className="grain-overlay" aria-hidden />
         <CursorGlow />
+        <ScrollProgress />
         <Navigation />
-        <main>{children}</main>
+        <main className="bg-[#080808]">{children}</main>
         <Footer />
       </body>
     </html>

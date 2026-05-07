@@ -27,13 +27,15 @@ export default function FinalCTA() {
       <div ref={ref} className="section-padding">
         {/* Giant CTA headline */}
         <div style={{ marginBottom: "40px" }}>
-          <motion.p
-            className="text-[10px] tracking-[0.35em] uppercase text-[#B91C1C] font-bold mb-8"
-            initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5 }}
+          <motion.div
+            className="flex items-center gap-3 mb-8"
+            initial={{ opacity: 0, x: -16 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            Let's work together
-          </motion.p>
+            <span className="block w-5 h-px bg-[#C45B5B]" />
+            <span className="text-[10px] tracking-[0.42em] uppercase text-[#C45B5B] font-bold">Let's work together</span>
+          </motion.div>
 
           {["LIKE TO TEST", "THE WATERS?"].map((line, i) => (
             <div key={i} className="overflow-hidden">
@@ -54,12 +56,12 @@ export default function FinalCTA() {
 
           <div className="overflow-hidden mt-2">
             <motion.h2
-              className="font-display text-[clamp(1.5rem,4vw,6rem)] leading-[0.88] text-[#B91C1C]"
+              className="font-display text-[clamp(3.5rem,10vw,14rem)] leading-[0.88] text-[#C9A84C]"
               initial={{ y: "110%" }}
               animate={inView ? { y: "0%" } : {}}
               transition={{ duration: 0.85, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
-              LET'S BUILD YOUR NEXT CONTENT ENGINE.
+              TOGETHER?
             </motion.h2>
           </div>
         </div>
@@ -74,7 +76,7 @@ export default function FinalCTA() {
         >
           <Link
             href="/contact"
-            className="px-10 py-5 bg-[#B91C1C] text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase hover:bg-[#F5E6D0] hover:text-[#B91C1C] transition-all duration-300 inline-flex items-center gap-3 group"
+            className="px-10 py-5 bg-[#C9A84C] text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase hover:bg-[#F5E6D0] hover:text-[#C9A84C] transition-all duration-300 inline-flex items-center gap-3 group"
           >
             Start a Conversation
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -83,7 +85,7 @@ export default function FinalCTA() {
           </Link>
           <a
             href={`mailto:${BRAND.email.primary}`}
-            className="px-10 py-5 border border-[#F5E6D0]/20 text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase hover:border-[#F5E6D0] hover:bg-[#F5E6D0]/5 transition-all duration-300"
+            className="px-10 py-5 border border-[#F5E6D0]/20 text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase hover:border-[#4E8CC4] hover:text-[#4E8CC4] hover:bg-[#4E8CC4]/5 transition-all duration-300"
           >
             Email Us Directly
           </a>
@@ -91,36 +93,20 @@ export default function FinalCTA() {
 
         {/* Email addresses */}
         <motion.div
-          className="flex flex-col lg:flex-row gap-4 lg:gap-10 border-t border-[#F5E6D0]/10 pt-10"
+          className="flex border-t border-[#F5E6D0]/10 pt-10"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.7, delay: 0.8 }}
         >
           <div>
-            <p className="text-[9px] tracking-[0.35em] uppercase text-[#F5E6D0]/30 mb-2">Partnerships & Briefs</p>
-            <a href={`mailto:${BRAND.email.primary}`} className="text-[#F5E6D0]/60 hover:text-[#B91C1C] text-sm transition-colors duration-300 font-medium">
+            <p className="text-[9px] tracking-[0.35em] uppercase text-[#F5E6D0]/30 mb-2">Get In Touch</p>
+            <a href={`mailto:${BRAND.email.primary}`} className="text-[#F5E6D0]/60 hover:text-[#C9A84C] text-sm transition-colors duration-300 font-medium">
               {BRAND.email.primary}
-            </a>
-          </div>
-          <div>
-            <p className="text-[9px] tracking-[0.35em] uppercase text-[#F5E6D0]/30 mb-2">Brand Solutions</p>
-            <a href={`mailto:${BRAND.email.secondary}`} className="text-[#F5E6D0]/60 hover:text-[#B91C1C] text-sm transition-colors duration-300 font-medium">
-              {BRAND.email.secondary}
             </a>
           </div>
         </motion.div>
       </div>
 
-      {/* Bottom marquee */}
-      <div className="border-t border-[#F5E6D0]/10 py-3 overflow-hidden">
-        <div className="flex whitespace-nowrap animate-ticker-reverse">
-          {[...TICKER_ITEMS, ...TICKER_ITEMS].map((t, i) => (
-            <span key={i} className="font-display text-sm text-[#F5E6D0]/10 mx-8 tracking-widest">
-              {t}
-            </span>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

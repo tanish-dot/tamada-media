@@ -9,7 +9,7 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 const VIDEOS = [
   { youtubeId: "WDrBMMpiah0" },
   { youtubeId: "r1f5Anr_HOw" },
-  { youtubeId: "qGXNW73SVjw" },
+  { youtubeId: "v3RTlnEjoVY" },
   { youtubeId: "faOHdV45cFg" },
 ];
 
@@ -37,7 +37,7 @@ function VideoCard({ video, index, inView }: { video: typeof VIDEOS[0]; index: n
 
       {/* Play button */}
       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="w-11 h-11 rounded-full bg-[#B91C1C] flex items-center justify-center shadow-xl shadow-[#B91C1C]/40 scale-90 group-hover:scale-100 transition-transform duration-300">
+        <div className="w-11 h-11 rounded-full bg-[#C9A84C] flex items-center justify-center shadow-xl shadow-[#C9A84C]/40 scale-90 group-hover:scale-100 transition-transform duration-300">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
             <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
           </svg>
@@ -45,7 +45,7 @@ function VideoCard({ video, index, inView }: { video: typeof VIDEOS[0]; index: n
       </div>
 
       {/* Bottom hover bar */}
-      <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#B91C1C] group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+      <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#C9A84C] group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
     </motion.a>
   );
 }
@@ -60,7 +60,7 @@ export default function CaseStudyASBL() {
 
         {/* ── Header ── */}
         <motion.p
-          className="text-[10px] tracking-[0.35em] uppercase text-[#B91C1C] font-bold mb-6"
+          className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] font-bold mb-6"
           initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
         >
@@ -77,7 +77,7 @@ export default function CaseStudyASBL() {
             <h2 className="font-display text-[clamp(5rem,10vw,13rem)] leading-[0.85] text-[#F5E6D0]">
               ASBL
             </h2>
-            <div className="mt-3 h-[3px] w-16 bg-[#B91C1C]" />
+            <div className="mt-3 h-[3px] w-16 bg-[#C9A84C]" />
           </motion.div>
 
           <motion.div
@@ -105,21 +105,21 @@ export default function CaseStudyASBL() {
         >
           {CASE_STUDY_ASBL.results.map((r, i) => (
             <div key={i} className="bg-[#080808] px-8 py-10 group relative overflow-hidden">
-              <span className="absolute inset-0 bg-[#B91C1C]/0 group-hover:bg-[#B91C1C]/5 transition-all duration-500" />
+              <span className="absolute inset-0 bg-[#C9A84C]/0 group-hover:bg-[#C9A84C]/5 transition-all duration-500" />
               <p className="text-[10px] tracking-[0.3em] uppercase text-[#F5E6D0]/30 font-bold mb-5 relative z-10">
                 {r.label}
               </p>
               <div className="flex items-center gap-5 relative z-10">
                 <div>
                   <p className="text-[#F5E6D0]/20 text-[9px] uppercase tracking-wider mb-2">Before</p>
-                  <p className="font-display text-3xl lg:text-4xl text-[#F5E6D0]/20 line-through decoration-[#B91C1C]/40">
+                  <p className="font-display text-3xl lg:text-4xl text-[#F5E6D0]/20 line-through decoration-[#C9A84C]/40">
                     {r.before}
                   </p>
                 </div>
-                <span className="text-[#B91C1C] font-display text-lg">→</span>
+                <span className="text-[#C9A84C] font-display text-lg">→</span>
                 <div>
-                  <p className="text-[#B91C1C] text-[9px] uppercase tracking-wider mb-2">After</p>
-                  <p className="font-display text-3xl lg:text-4xl text-[#B91C1C]">{r.after}</p>
+                  <p className="text-[#C9A84C] text-[9px] uppercase tracking-wider mb-2">After</p>
+                  <p className="font-display text-3xl lg:text-4xl text-[#C9A84C]">{r.after}</p>
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function CaseStudyASBL() {
           {CASE_STUDY_ASBL.approach.map((a) => (
             <span
               key={a}
-              className="px-4 py-1.5 border border-[#F5E6D0]/10 text-[10px] font-bold tracking-[0.2em] uppercase text-[#F5E6D0]/30 hover:border-[#B91C1C] hover:text-[#B91C1C] transition-colors duration-300 cursor-default"
+              className="px-4 py-1.5 border border-[#F5E6D0]/10 text-[10px] font-bold tracking-[0.2em] uppercase text-[#F5E6D0]/30 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors duration-300 cursor-default"
             >
               {a}
             </span>
@@ -171,7 +171,7 @@ export default function CaseStudyASBL() {
             href="https://www.youtube.com/@ASBLIndia"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 text-[#F5E6D0]/35 hover:text-[#B91C1C] transition-colors duration-300 text-[10px] tracking-[0.22em] uppercase font-bold"
+            className="group inline-flex items-center gap-3 text-[#F5E6D0]/35 hover:text-[#C9A84C] transition-colors duration-300 text-[10px] tracking-[0.22em] uppercase font-bold"
           >
             <span>View full channel</span>
             <span className="block w-8 h-px bg-current group-hover:w-14 transition-all duration-500" />

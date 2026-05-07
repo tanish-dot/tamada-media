@@ -13,6 +13,7 @@ interface MediaCardProps {
   index?: number;
   slot?: string;
   poster?: string;
+  url?: string;
 }
 
 const aspectClasses: Record<string, string> = {
@@ -28,13 +29,14 @@ export default function MediaCard({
   stat,
   aspectRatio = "16/9",
   bg = "#1A1A1A",
-  accent = "#B91C1C",
+  accent = "#C9A84C",
   className = "",
   index = 0,
   slot,
   poster,
+  url,
 }: MediaCardProps) {
-  return (
+  const card = (
     <motion.div
       className={`relative overflow-hidden group cursor-pointer ${aspectClasses[aspectRatio]} ${className}`}
       style={{
@@ -71,7 +73,7 @@ export default function MediaCard({
 
       {/* Hover overlay */}
       <motion.div
-        className="absolute inset-0 bg-[#B91C1C]/0 group-hover:bg-[#B91C1C]/20 transition-all duration-500"
+        className="absolute inset-0 bg-[#C9A84C]/0 group-hover:bg-[#C9A84C]/20 transition-all duration-500"
       />
 
       {/* Content */}
@@ -104,4 +106,9 @@ export default function MediaCard({
       </motion.div>
     </motion.div>
   );
+
+  if (url) {
+    return <a href={url} target="_blank" rel="noopener noreferrer">{card}</a>;
+  }
+  return card;
 }

@@ -42,7 +42,7 @@ export const Radar = ({ className }: { className?: string }) => {
         style={{ transformOrigin: "right center" }}
         className="animate-radar-spin absolute right-1/2 top-1/2 z-40 flex h-[5px] w-[400px] items-end justify-center overflow-hidden bg-transparent"
       >
-        <div className="relative z-40 h-[1px] w-full bg-gradient-to-r from-transparent via-[#B91C1C] to-transparent" />
+        <div className="relative z-40 h-[1px] w-full bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent" />
       </div>
 
       {/* Concentric circles — cream tones */}
@@ -59,7 +59,7 @@ export const Radar = ({ className }: { className?: string }) => {
       ))}
 
       {/* Centre dot */}
-      <div className="relative z-50 w-2 h-2 rounded-full bg-[#B91C1C]" />
+      <div className="relative z-50 w-2 h-2 rounded-full bg-[#C9A84C]" />
     </div>
   );
 };

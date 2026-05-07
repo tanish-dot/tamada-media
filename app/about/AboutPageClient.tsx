@@ -11,6 +11,9 @@ import {
   useSpring,
 } from "framer-motion";
 import Link from "next/link";
+import Founders from "@/components/sections/Founders";
+import FoundersIntro from "@/components/sections/FoundersIntro";
+import AwardsSection from "@/components/sections/AwardsSection";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -18,23 +21,23 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 // Credentials unique to About — nothing repeated from homepage
 const CREDENTIALS = [
-  { num: "2009",   desc: "Year we started building creator networks — before 'creator economy' was a phrase." },
+  { num: "2011",   desc: "Year we started building creator networks — before 'creator economy' was a phrase." },
   { num: "1 of 12", desc: "YouTube Enterprise Partners in all of India. One of the rarest designations on the platform." },
   { num: "70K",    desc: "Videos produced every single month, entirely in-house. No outsourcing." },
   { num: "35+",    desc: "Original IPs we own outright. Wirally. YINT. Rowdy Baby. Built to outlast campaigns." },
 ];
 
 const PILLARS = [
-  { num: "01", title: "Multi-Channel Network",  body: "750+ channels. 280M+ subscribers. We don't just manage creators — we build them infrastructure, strategy, and scale. South India's largest managed creator ecosystem." },
-  { num: "02", title: "IP Builder",             body: "35+ original IPs across Telugu, Tamil, Kannada, Malayalam, and Hindi. Wirally. YINT. Rowdy Baby. Content machines built to compound over years, not campaigns." },
-  { num: "03", title: "Production House",       body: "70,000 videos every month. Scripts, shoots, post-production — all under one roof. We don't outsource. We own the pipeline." },
-  { num: "04", title: "OTT Partner",            body: "29+ long-form shows. 5,500+ minutes. Aha, Hotstar, Amazon Prime, Viu, JioCinema. We built the bridge between digital creators and premium streaming." },
-  { num: "05", title: "Platform Partner",       body: "20+ platform programmes. 69,000+ pieces of content. We don't just distribute — we engineer scale at the platform level." },
-  { num: "06", title: "Brand Storytelling",     body: "200+ brands. 300+ campaigns. 2B+ impressions. Hashify brand solutions turns briefs into cultural moments that actually land." },
+  { num: "01", stat: "750+",  title: "Multi-Channel Network",  body: "Channels managed and grown at scale. South India's largest creator infrastructure — in-house strategy, distribution, and ops." },
+  { num: "02", stat: "35+",   title: "IP Builder",             body: "Original IPs we own outright. Wirally. YINT. Rowdy Baby. Built to compound over years, not campaigns." },
+  { num: "03", stat: "70K",   title: "Production House",       body: "Videos produced every single month, entirely in-house. Scripts, shoots, post — we own the entire pipeline." },
+  { num: "04", stat: "29+",   title: "OTT Partner",            body: "Long-form shows across Aha, Hotstar, Amazon Prime, Viu, JioCinema. We built the bridge from digital to premium." },
+  { num: "05", stat: "20+",   title: "Platform Partner",       body: "Platform programmes engineered for scale. 69,000+ pieces of content placed where audiences actually are." },
+  { num: "06", stat: "200+",  title: "Brand Storytelling",     body: "Brand campaigns. 2B+ impressions. Hashify turns briefs into cultural moments that land and last." },
 ];
 
 const TIMELINE = [
-  { year: "2009", event: "Founded in Hyderabad. First creator network in South India when everyone else was buying TV spots." },
+  { year: "2011", event: "Founded in Hyderabad. First creator network in South India when everyone else was buying TV spots." },
   { year: "2013", event: "Launched Wirally — the flagship Telugu digital content brand. First million views felt like a revolution." },
   { year: "2016", event: "Expanded to Tamil, Kannada, Malayalam, and Hindi. Five languages. One machine." },
   { year: "2018", event: "500+ creator network. First OTT originals commissioned. Proof that digital could go long-form." },
@@ -131,7 +134,7 @@ function CursorSpotlight() {
         width: 520,
         height: 520,
         borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(185,28,28,0.13) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(201,168,76,0.13) 0%, transparent 70%)",
       }}
     />
   );
@@ -147,6 +150,8 @@ export default function AboutPageClient() {
       <PillarsSection />
       <TimelineSection />
       <TeamSection />
+      <AwardsSection />
+      <Founders />
       <CultureSection />
       <CtaSection />
     </main>
@@ -196,14 +201,14 @@ function HeroSection() {
 
       {/* Atmosphere */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
-        <div style={{ background: "radial-gradient(ellipse 55% 50% at 100% 100%, rgba(185,28,28,0.16) 0%, transparent 65%)" }} className="absolute inset-0" />
+        <div style={{ background: "radial-gradient(ellipse 55% 50% at 100% 100%, rgba(201,168,76,0.16) 0%, transparent 65%)" }} className="absolute inset-0" />
         <div style={{ background: "radial-gradient(ellipse 40% 40% at 0% 0%, rgba(0,0,0,0.6) 0%, transparent 60%)" }} className="absolute inset-0" />
       </div>
 
       {/* Nav clearance */}
       <div className="relative z-10 pt-[5rem]" />
 
-      {/* Giant outlined "16" — mouse + scroll parallax */}
+      {/* Giant outlined "15" — mouse + scroll parallax */}
       <motion.div
         aria-hidden
         className="absolute inset-0 z-[2] flex items-center justify-end pointer-events-none overflow-hidden pr-[5vw]"
@@ -223,7 +228,7 @@ function HeroSection() {
           animate={ready ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1.4, delay: 0.1, ease: EASE }}
         >
-          16
+          15
         </motion.span>
       </motion.div>
 
@@ -238,10 +243,10 @@ function HeroSection() {
           transition={{ duration: 0.7, ease: EASE }}
         >
           <div className="flex items-center gap-3">
-            <span className="w-5 h-px bg-[#B91C1C] block" />
+            <span className="w-5 h-px bg-[#C9A84C] block" />
             <span className="text-[10px] tracking-[0.42em] uppercase text-[#F5E6D0]/35 font-semibold">About Tamada Media</span>
           </div>
-          <span className="text-[10px] tracking-[0.35em] uppercase text-[#F5E6D0]/20 font-semibold hidden lg:block">Est. 2010 · Hyderabad</span>
+          <span className="text-[10px] tracking-[0.35em] uppercase text-[#F5E6D0]/20 font-semibold hidden lg:block">Est. 2011 · Hyderabad</span>
         </motion.div>
 
         {/* Headline — left aligned, pushed to lower half */}
@@ -249,7 +254,7 @@ function HeroSection() {
 
           {/* Sweeping red line */}
           <motion.div
-            className="w-full h-px bg-[#B91C1C]/30 mb-8"
+            className="w-full h-px bg-[#C9A84C]/30 mb-8"
             style={{ scaleX: lineScaleX, originX: 0 }}
             initial={{ scaleX: 0 }}
             animate={ready ? { scaleX: 1 } : {}}
@@ -260,7 +265,7 @@ function HeroSection() {
             {[
               { text: "YEARS OF",   color: "text-[#F5E6D0]/25", size: "clamp(1.8rem,4vw,5.5rem)" },
               { text: "BUILDING",   color: "text-[#F5E6D0]",    size: "clamp(3rem,7.5vw,10rem)" },
-              { text: "THE SOUTH.", color: "text-[#B91C1C]",     size: "clamp(3rem,7.5vw,10rem)" },
+              { text: "THE SOUTH.", color: "text-[#C9A84C]",     size: "clamp(3rem,7.5vw,10rem)" },
             ].map((line, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.h1
@@ -303,7 +308,7 @@ function HeroSection() {
             <div className="relative overflow-hidden" style={{ width: "1px", height: "36px", background: "rgba(245,230,208,0.10)" }}>
               <motion.div
                 className="absolute top-0 left-0 right-0"
-                style={{ height: "14px", background: "linear-gradient(to bottom, #B91C1C, transparent)" }}
+                style={{ height: "14px", background: "linear-gradient(to bottom, #C9A84C, transparent)" }}
                 animate={{ y: ["-100%", "300%"] }}
                 transition={{ duration: 1.4, repeat: Infinity, ease: "linear", repeatDelay: 0.6 }}
               />
@@ -351,19 +356,19 @@ function CredentialRow({
       {/* Sliding fill on hover */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(90deg, rgba(185,28,28,0.08) 0%, transparent 70%)" }}
+        style={{ background: "linear-gradient(90deg, rgba(201,168,76,0.08) 0%, transparent 70%)" }}
         initial={{ x: "-100%" }}
         animate={{ x: hovered ? "0%" : "-100%" }}
         transition={{ duration: 0.4, ease: EASE }}
       />
       {/* Bottom rule */}
-      <span className="absolute bottom-0 left-0 right-0 h-px bg-[#B91C1C] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+      <span className="absolute bottom-0 left-0 right-0 h-px bg-[#C9A84C] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
       <span
         className="font-display leading-none shrink-0 tabular-nums relative"
         style={{
           fontSize: "clamp(1.4rem, 2.8vw, 3.2rem)",
-          color: hovered ? "#B91C1C" : "rgba(245,230,208,0.9)",
+          color: hovered ? "#C9A84C" : "rgba(245,230,208,0.9)",
           transition: "color 0.25s",
           minWidth: "7ch",
         }}
@@ -382,12 +387,6 @@ function CredentialRow({
 
 // ── Origin ─────────────────────────────────────────────────────────────────────
 
-const ORIGIN_FACTS = [
-  { num: "2009", label: "Founded", desc: "Before anyone called it a creator economy." },
-  { num: "1 of 12", label: "Enterprise", desc: "YouTube Enterprise Partners in all of India." },
-  { num: "70,000", label: "Videos/month", desc: "Every single one made in-house." },
-];
-
 function OriginSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -395,97 +394,117 @@ function OriginSection() {
   return (
     <section ref={ref} className="bg-[#F5E6D0] relative overflow-hidden">
 
-      {/* All content in one padded block */}
-      <div className="section-padding border-b border-[#0A0A0A]/[0.08]">
-        <motion.p
-          className="text-[10px] tracking-[0.42em] uppercase text-[#B91C1C] font-bold mb-10"
-          initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5 }}
-        >
-          Our Story
-        </motion.p>
-
-        {[
-          { text: "THE INDUSTRY", color: "text-[#0A0A0A]/20" },
-          { text: "LAUGHED.", color: "text-[#B91C1C]" },
-          { text: "WE BUILT.", color: "text-[#0A0A0A]" },
-        ].map((line, i) => (
-          <div key={i} className="overflow-hidden">
-            <motion.h2
-              className={`font-display leading-[0.88] ${line.color}`}
-              style={{ fontSize: "clamp(3.5rem,9vw,13rem)" }}
-              initial={{ y: "110%" }}
-              animate={inView ? { y: "0%" } : {}}
-              transition={{ duration: 1.0, delay: 0.1 + i * 0.13, ease: EASE }}
-            >
-              {line.text}
-            </motion.h2>
-          </div>
-        ))}
-
-        <motion.p
-          className="mt-10 text-[#0A0A0A]/45 text-base lg:text-lg leading-[1.9] max-w-2xl"
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.55, ease: EASE }}
-        >
-          In 2009, when brands were still buying TV spots, we were building creator networks
-          in Telugu, Tamil, and Kannada. We didn&apos;t pivot to digital — we were{" "}
-          <span className="text-[#0A0A0A]/80 font-semibold">born there.</span>
-        </motion.p>
+      {/* Ghost watermark */}
+      <div
+        aria-hidden
+        className="absolute right-0 bottom-0 font-display leading-none select-none pointer-events-none"
+        style={{ fontSize: "clamp(12rem,28vw,36rem)", color: "rgba(10,10,10,0.04)", lineHeight: 0.85, letterSpacing: "-0.04em" }}
+      >
+        2011
       </div>
 
-      {/* Fact grid — 3 columns with dividers */}
-      <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#0A0A0A]/[0.08]">
-        {ORIGIN_FACTS.map((f, i) => (
-          <OriginFactCell key={i} fact={f} index={i} inView={inView} />
-        ))}
+      <div className="section-padding relative z-10">
+
+        {/* Eyebrow */}
+        <motion.div
+          className="flex items-center gap-3 mb-14"
+          initial={{ opacity: 0, x: -16 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, ease: EASE }}
+        >
+          <span className="w-5 h-px bg-[#C9A84C] block" />
+          <span className="text-[10px] tracking-[0.42em] uppercase text-[#C9A84C] font-bold">Our Story</span>
+        </motion.div>
+
+        {/* Headline — varied sizes for rhythm */}
+        <div className="mb-0">
+          {[
+            { text: "THE INDUSTRY", color: "rgba(10,10,10,0.12)", size: "clamp(2.8rem,7vw,10rem)" },
+            { text: "LAUGHED.", color: "#C9A84C", size: "clamp(3.5rem,9.5vw,13.5rem)" },
+            { text: "WE BUILT.", color: "#0A0A0A", size: "clamp(3.5rem,9.5vw,13.5rem)" },
+          ].map((line, i) => (
+            <div key={i} className="overflow-hidden">
+              <motion.h2
+                className="font-display leading-[0.88]"
+                style={{ fontSize: line.size, color: line.color }}
+                initial={{ y: "110%", skewY: 1.5 }}
+                animate={inView ? { y: "0%", skewY: 0 } : {}}
+                transition={{ duration: 1.0, delay: 0.1 + i * 0.13, ease: EASE }}
+              >
+                {line.text}
+              </motion.h2>
+            </div>
+          ))}
+        </div>
+
+        {/* Rule with year stamp */}
+        <div className="flex items-center gap-6 mt-14 mb-14">
+          <motion.div
+            className="flex-1 h-px bg-[#0A0A0A]/10"
+            style={{ originX: 0 }}
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : {}}
+            transition={{ duration: 1.0, delay: 0.5, ease: EASE }}
+          />
+          <motion.span
+            className="text-[9px] tracking-[0.4em] uppercase text-[#0A0A0A]/25 font-bold shrink-0"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            Est. 2011
+          </motion.span>
+        </div>
+
+        {/* Editorial body */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+
+          {/* Left: body */}
+          <motion.div
+            className="lg:col-span-7"
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
+          >
+            <p className="text-[#0A0A0A]/60 text-base lg:text-lg leading-[1.95]">
+              When every agency was buying TV spots and billboard space, we were building creator networks in Telugu, Tamil, and Kannada. Nobody had a name for what we were doing. The creator economy wasn&apos;t a phrase. Digital wasn&apos;t a strategy — it was a punchline.
+            </p>
+            <p className="text-[#0A0A0A]/50 text-base lg:text-lg leading-[1.95] mt-6">
+              We didn&apos;t pivot to digital. We were born there. Fourteen years and{" "}
+              <strong className="text-[#0A0A0A]/80 font-semibold">4.8 billion monthly views</strong>{" "}
+              later, the industry that laughed is asking us how we did it.
+            </p>
+          </motion.div>
+
+          {/* Right: pull quote */}
+          <motion.div
+            className="lg:col-span-5 flex flex-col justify-center border-l-2 border-[#C9A84C]/30 lg:pl-12"
+            initial={{ opacity: 0, x: 24 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.75, ease: EASE }}
+          >
+            <span
+              className="font-display text-[#C9A84C] select-none"
+              style={{ fontSize: "8rem", lineHeight: 0.6 }}
+              aria-hidden
+            >
+              &ldquo;
+            </span>
+            <p
+              className="font-display text-[#0A0A0A] leading-[0.92] mt-2"
+              style={{ fontSize: "clamp(1.6rem,2.5vw,3rem)" }}
+            >
+              We didn&apos;t pivot to digital. We were born there.
+            </p>
+            <div className="mt-8 pt-8 border-t border-[#0A0A0A]/10 flex items-center gap-3">
+              <span className="w-8 h-px bg-[#C9A84C] shrink-0" />
+              <span className="text-[9px] tracking-[0.3em] uppercase text-[#0A0A0A]/30 font-bold">Tamada Media · Est. 2011</span>
+            </div>
+          </motion.div>
+
+        </div>
       </div>
     </section>
-  );
-}
-
-function OriginFactCell({
-  fact,
-  index,
-  inView,
-}: {
-  fact: (typeof ORIGIN_FACTS)[0];
-  index: number;
-  inView: boolean;
-}) {
-  const [hovered, setHovered] = useState(false);
-  return (
-    <motion.div
-      className="relative overflow-hidden cursor-default"
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.6 + index * 0.1, ease: EASE }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {/* Hover fill */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(160deg, rgba(185,28,28,0.07) 0%, transparent 70%)" }}
-        animate={{ opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-      />
-      <div className="section-padding py-10 relative z-10">
-        <motion.span
-          className="font-display block leading-none mb-4 tabular-nums"
-          style={{
-            fontSize: "clamp(2.5rem,5vw,6rem)",
-            color: hovered ? "#B91C1C" : "rgba(10,10,10,0.8)",
-            transition: "color 0.25s",
-          }}
-        >
-          {fact.num}
-        </motion.span>
-        <p className="text-[10px] tracking-[0.3em] uppercase text-[#0A0A0A]/30 font-bold mb-2">{fact.label}</p>
-        <p className="text-sm text-[#0A0A0A]/35 leading-relaxed">{fact.desc}</p>
-      </div>
-    </motion.div>
   );
 }
 
@@ -496,100 +515,99 @@ function PillarsSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="section-padding bg-[#080808] relative overflow-hidden">
+    <section ref={ref} className="bg-[#080808] relative overflow-hidden">
       <FilmGrain />
       <CursorSpotlight />
-      <div className="relative z-10">
-        <motion.p className="text-[10px] tracking-[0.42em] uppercase text-[#B91C1C] font-bold mb-6"
-          initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5 }}
+      <div className="relative z-10 section-padding pb-0">
+        <motion.div
+          className="flex items-center gap-3 mb-6"
+          initial={{ opacity: 0, x: -16 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, ease: EASE }}
         >
-          What We Are
-        </motion.p>
+          <span className="w-5 h-px bg-[#C9A84C] block" />
+          <span className="text-[10px] tracking-[0.42em] uppercase text-[#C9A84C] font-bold">What We Are</span>
+        </motion.div>
 
-        <div className="overflow-hidden" style={{ marginBottom: "40px" }}>
+        <div className="overflow-hidden mb-16">
           <motion.h2
             className="font-display text-[clamp(3rem,6.5vw,9rem)] leading-[0.87] text-[#F5E6D0]"
             initial={{ y: "108%" }}
             animate={inView ? { y: "0%" } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
           >
-            NOT ONE THING.{" "}<span className="text-[#B91C1C]">EVERY THING.</span>
+            NOT ONE THING.{" "}<span className="text-[#C9A84C]">EVERY THING.</span>
           </motion.h2>
         </div>
+      </div>
 
-        <div className="flex flex-col divide-y divide-[#F5E6D0]/[0.07]">
-          {PILLARS.map((p, i) => (
-            <PillarRow key={i} pillar={p} index={i} />
-          ))}
-        </div>
+      {/* Card grid — no side padding, bleeds edge to edge */}
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#F5E6D0]/[0.07]">
+        {PILLARS.map((p, i) => (
+          <PillarCard key={i} pillar={p} index={i} inView={inView} />
+        ))}
       </div>
     </section>
   );
 }
 
-function PillarRow({ pillar, index }: { pillar: typeof PILLARS[0]; index: number }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+function PillarCard({ pillar, index, inView }: { pillar: typeof PILLARS[0]; index: number; inView: boolean }) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <motion.div
-      ref={ref}
-      className="group relative overflow-hidden"
-      initial={{ opacity: 0, y: 20 }}
+      className="relative bg-transparent flex flex-col overflow-hidden cursor-default"
+      style={{ padding: "clamp(1.8rem,3.5vw,3.5rem)" }}
+      initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.08 + index * 0.07, ease: EASE }}
+      transition={{ duration: 0.6, delay: 0.1 + index * 0.07, ease: EASE }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Sweep fill */}
+      {/* Hover tint */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(90deg, rgba(185,28,28,0.06) 0%, transparent 50%)" }}
-        animate={{ x: hovered ? "0%" : "-100%" }}
-        transition={{ duration: 0.45, ease: EASE }}
+        style={{ background: "linear-gradient(135deg, rgba(201,168,76,0.08) 0%, transparent 65%)" }}
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
       />
 
-      <div className="flex flex-col lg:flex-row gap-4 lg:gap-0 py-9 cursor-default relative">
-        {/* Bottom border */}
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 h-px bg-[#B91C1C] origin-left"
-          animate={{ scaleX: hovered ? 1 : 0 }}
-          transition={{ duration: 0.5, ease: EASE }}
-        />
+      {/* Top: number */}
+      <p className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] font-bold mb-6 relative">{pillar.num}</p>
 
-        {/* Number */}
-        <span
-          className="font-display leading-none shrink-0 lg:w-24 transition-colors duration-300"
-          style={{
-            fontSize: "clamp(1.8rem,2.5vw,3rem)",
-            color: hovered ? "#B91C1C" : "rgba(245,230,208,0.2)",
-          }}
-        >
-          {pillar.num}
-        </span>
+      {/* Stat — the big number */}
+      <p
+        className="font-display leading-none tabular-nums relative"
+        style={{
+          fontSize: "clamp(4rem, 7vw, 8rem)",
+          color: hovered ? "#C9A84C" : "rgba(245,230,208,0.88)",
+          transition: "color 0.3s",
+        }}
+      >
+        {pillar.stat}
+      </p>
 
-        {/* Title */}
+      {/* Bottom: title + body */}
+      <div className="relative mt-auto pt-8">
         <h3
-          className="font-display leading-tight shrink-0 lg:w-[38%] transition-colors duration-300"
+          className="font-display leading-tight mb-3"
           style={{
-            fontSize: "clamp(1.4rem,2.2vw,2.6rem)",
-            color: hovered ? "#B91C1C" : "#F5E6D0",
+            fontSize: "clamp(1.1rem,1.5vw,1.6rem)",
+            color: hovered ? "#F5E6D0" : "rgba(245,230,208,0.65)",
+            transition: "color 0.3s",
           }}
         >
           {pillar.title}
         </h3>
-
-        {/* Body — slides in on hover */}
-        <motion.p
-          className="text-sm lg:text-base leading-[1.85] text-[#F5E6D0]/40 lg:pl-10 self-center"
-          animate={{ opacity: hovered ? 1 : 0.4, x: hovered ? 0 : 8 }}
-          transition={{ duration: 0.35, ease: EASE }}
-        >
-          {pillar.body}
-        </motion.p>
+        <p className="text-[#F5E6D0]/28 text-sm leading-[1.8]">{pillar.body}</p>
       </div>
+
+      {/* Bottom sweep */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-px bg-[#C9A84C] origin-left"
+        animate={{ scaleX: hovered ? 1 : 0 }}
+        transition={{ duration: 0.5, ease: EASE }}
+      />
     </motion.div>
   );
 }
@@ -601,31 +619,47 @@ function TimelineSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#F5E6D0] relative overflow-hidden">
+    <section ref={ref} className="bg-[#080808] relative overflow-hidden">
+      {/* Grain */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.04] mix-blend-overlay"
+        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: "256px" }}
+      />
+
       {/* Header */}
-      <div className="px-6 md:px-16 lg:px-24 xl:px-32 border-b border-[#0A0A0A]/[0.08] py-5">
-        <div className="flex items-center justify-between">
+      <div className="section-padding pb-0 relative z-10">
+        <div className="flex items-end justify-between mb-12">
+          <div>
+            <motion.div className="flex items-center gap-3 mb-4"
+              initial={{ opacity: 0, x: -16 }} animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, ease: EASE }}
+            >
+              <span className="w-5 h-px bg-[#C9A84C] block" />
+              <span className="text-[10px] tracking-[0.42em] uppercase text-[#C9A84C] font-bold">The Journey</span>
+            </motion.div>
+            <div className="overflow-hidden">
+              <motion.h2
+                className="font-display text-[clamp(2.5rem,5.5vw,7rem)] leading-[0.87] text-[#F5E6D0]"
+                initial={{ y: "108%" }} animate={inView ? { y: "0%" } : {}}
+                transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
+              >
+                2011 <span className="text-[#C9A84C]">→</span> NOW.
+              </motion.h2>
+            </div>
+          </div>
           <motion.p
-            className="text-[10px] tracking-[0.42em] uppercase text-[#B91C1C] font-bold"
+            className="text-[#F5E6D0]/20 text-xs tracking-[0.2em] uppercase hidden lg:block text-right leading-relaxed max-w-[160px]"
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
-            The Journey
-          </motion.p>
-          <motion.p
-            className="text-[10px] tracking-[0.3em] uppercase text-[#0A0A0A]/30 font-bold hidden lg:block"
-            initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            2009 → 2025
+            Fifteen years of building what nobody else would
           </motion.p>
         </div>
       </div>
 
-      {/* Rows — full width, no section-padding, rows own their padding */}
-      <div className="flex flex-col">
+      {/* Timeline rows */}
+      <div className="relative z-10">
         {TIMELINE.map((t, i) => (
-          <TimelineRow key={t.year} item={t} index={i} inView={inView} />
+          <TimelineRow key={t.year} item={t} index={i} inView={inView} last={i === TIMELINE.length - 1} />
         ))}
       </div>
     </section>
@@ -633,49 +667,72 @@ function TimelineSection() {
 }
 
 function TimelineRow({
-  item,
-  index,
-  inView,
+  item, index, inView, last,
 }: {
   item: typeof TIMELINE[0];
   index: number;
   inView: boolean;
+  last: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <motion.div
-      className="relative overflow-hidden cursor-default border-b border-[#0A0A0A]/[0.08]"
-      initial={{ opacity: 0 }}
-      animate={inView ? { opacity: 1 } : {}}
-      transition={{ duration: 0.5, delay: 0.15 + index * 0.07, ease: EASE }}
+      className="relative border-t border-[#F5E6D0]/[0.07] cursor-default group"
+      style={{ borderBottom: last ? "1px solid rgba(245,230,208,0.07)" : undefined }}
+      initial={{ opacity: 0, y: 12 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: 0.2 + index * 0.07, ease: EASE }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Full dark curtain wipes up from bottom on hover */}
+      {/* Hover fill */}
       <motion.div
-        className="absolute inset-0 bg-[#0A0A0A] pointer-events-none"
-        initial={{ y: "100%" }}
-        animate={{ y: hovered ? "0%" : "100%" }}
-        transition={{ duration: 0.45, ease: EASE }}
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(90deg, rgba(201,168,76,0.06) 0%, transparent 50%)" }}
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+      />
+      {/* Gold left bar */}
+      <motion.div
+        className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#C9A84C] origin-top"
+        animate={{ scaleY: hovered ? 1 : 0 }}
+        transition={{ duration: 0.35, ease: EASE }}
       />
 
-      <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-0 px-8 md:px-16 lg:px-24 xl:px-32 py-8 lg:py-10">
-        {/* Year — huge, left anchor */}
+      <div className="section-padding py-6 lg:py-7 relative z-10 flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-0">
+        {/* Year */}
         <motion.span
-          className="font-display tabular-nums leading-none shrink-0 lg:w-52"
-          style={{ fontSize: "clamp(2.8rem,6vw,8rem)" }}
-          animate={{ color: hovered ? "#B91C1C" : "rgba(10,10,10,0.18)" }}
-          transition={{ duration: 0.3 }}
+          className="font-display tabular-nums shrink-0 lg:w-36"
+          style={{ fontSize: "clamp(1.4rem,2vw,2rem)", lineHeight: 1 }}
+          animate={{ color: hovered ? "#C9A84C" : "rgba(245,230,208,0.35)" }}
+          transition={{ duration: 0.25 }}
         >
           {item.year}
         </motion.span>
 
+        {/* Dot + line connector */}
+        <div className="hidden lg:flex items-center gap-0 shrink-0 w-24">
+          <motion.div
+            className="w-2 h-2 rounded-full border shrink-0"
+            animate={{
+              borderColor: hovered ? "#C9A84C" : "rgba(245,230,208,0.2)",
+              backgroundColor: hovered ? "#C9A84C" : "transparent",
+            }}
+            transition={{ duration: 0.25 }}
+          />
+          <motion.div
+            className="flex-1 h-px"
+            animate={{ backgroundColor: hovered ? "rgba(201,168,76,0.4)" : "rgba(245,230,208,0.08)" }}
+            transition={{ duration: 0.25 }}
+          />
+        </div>
+
         {/* Event */}
         <motion.p
-          className="text-base lg:text-lg leading-[1.75] max-w-2xl"
-          animate={{ color: hovered ? "rgba(245,230,208,0.8)" : "rgba(10,10,10,0.65)" }}
-          transition={{ duration: 0.3 }}
+          className="flex-1 text-sm lg:text-base leading-[1.75] lg:pl-6"
+          animate={{ color: hovered ? "rgba(245,230,208,0.85)" : "rgba(245,230,208,0.4)" }}
+          transition={{ duration: 0.25 }}
         >
           {item.event}
         </motion.p>
@@ -694,10 +751,10 @@ function TeamSection() {
     <section ref={ref} className="section-padding bg-[#080808] relative overflow-hidden">
       <FilmGrain />
       <CursorSpotlight />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 60% at 100% 50%, rgba(185,28,28,0.08) 0%, transparent 70%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 60% at 100% 50%, rgba(201,168,76,0.08) 0%, transparent 70%)" }} />
 
       <div className="relative z-10">
-        <motion.p className="text-[10px] tracking-[0.42em] uppercase text-[#B91C1C] font-bold mb-6"
+        <motion.p className="text-[10px] tracking-[0.42em] uppercase text-[#C9A84C] font-bold mb-6"
           initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
         >
@@ -709,7 +766,7 @@ function TeamSection() {
             {["250+ PEOPLE.", "2 CITIES."].map((line, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.h2
-                  className={`font-display text-[clamp(3rem,6.5vw,9rem)] leading-[0.87] ${i === 1 ? "text-[#B91C1C]" : "text-[#F5E6D0]"}`}
+                  className={`font-display text-[clamp(3rem,6.5vw,9rem)] leading-[0.87] ${i === 1 ? "text-[#C9A84C]" : "text-[#F5E6D0]"}`}
                   initial={{ y: "108%" }}
                   animate={inView ? { y: "0%" } : {}}
                   transition={{ duration: 0.9, delay: 0.1 + i * 0.12, ease: EASE }}
@@ -736,19 +793,6 @@ function TeamSection() {
           ))}
         </div>
 
-        {/* Offices */}
-        <motion.p className="text-[10px] tracking-[0.28em] uppercase text-[#F5E6D0]/25 font-bold mb-6"
-          initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          Our Offices
-        </motion.p>
-
-        <div className="flex flex-col divide-y divide-[#F5E6D0]/[0.07]">
-          {OFFICES.map((o, i) => (
-            <OfficeRow key={i} office={o} index={i} inView={inView} />
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -769,17 +813,17 @@ function OfficeRow({ office, index, inView }: { office: typeof OFFICES[0]; index
       {/* Sliding bg */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(90deg, rgba(185,28,28,0.06) 0%, transparent 60%)" }}
+        style={{ background: "linear-gradient(90deg, rgba(201,168,76,0.06) 0%, transparent 60%)" }}
         initial={{ x: "-100%" }}
         animate={{ x: hovered ? "0%" : "-100%" }}
         transition={{ duration: 0.45, ease: EASE }}
       />
 
-      <span className="absolute bottom-0 left-0 right-0 h-px bg-[#B91C1C] scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
+      <span className="absolute bottom-0 left-0 right-0 h-px bg-[#C9A84C] scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
 
       <motion.h3
         className="font-display text-xl lg:text-3xl relative"
-        animate={{ color: hovered ? "#B91C1C" : "#F5E6D0" }}
+        animate={{ color: hovered ? "#C9A84C" : "#F5E6D0" }}
         transition={{ duration: 0.25 }}
       >
         {office.city}
@@ -843,12 +887,12 @@ function CultureCard({ metric, index, inView }: { metric: typeof CULTURE_METRICS
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         whileHover={{
-          borderColor: "rgba(185,28,28,0.45)",
+          borderColor: "rgba(201,168,76,0.45)",
           transition: { duration: 0.2 },
         }}
       >
-        <span className="absolute top-0 left-0 w-4 h-[1.5px] bg-[#B91C1C] opacity-60" />
-        <span className="absolute top-0 left-0 h-4 w-[1.5px] bg-[#B91C1C] opacity-60" />
+        <span className="absolute top-0 left-0 w-4 h-[1.5px] bg-[#C9A84C] opacity-60" />
+        <span className="absolute top-0 left-0 h-4 w-[1.5px] bg-[#C9A84C] opacity-60" />
 
         <motion.div animate={{ y: [0, -(4 + index * 2), 0] }} transition={{ duration: 3.5 + index * 0.8, repeat: Infinity, ease: "easeInOut", delay: index * 0.7 }}>
           <p className="font-display text-[#F5E6D0] leading-none mb-3 tabular-nums" style={{ fontSize: "clamp(2rem, 3.5vw, 4rem)" }}>
@@ -859,7 +903,7 @@ function CultureCard({ metric, index, inView }: { metric: typeof CULTURE_METRICS
         </motion.div>
 
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300"
-          style={{ background: "linear-gradient(135deg, rgba(185,28,28,0.07) 0%, transparent 55%)" }} />
+          style={{ background: "linear-gradient(135deg, rgba(201,168,76,0.07) 0%, transparent 55%)" }} />
       </motion.div>
     </motion.div>
   );
@@ -880,7 +924,7 @@ function CultureSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   return (
-    <section ref={ref} className="section-padding bg-[#B91C1C] relative overflow-hidden min-h-[60vh]">
+    <section ref={ref} className="section-padding bg-[#C9A84C] relative overflow-hidden min-h-[60vh]">
       {/* Film grain */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }}
@@ -962,7 +1006,7 @@ function CtaSection() {
     <section ref={ref} className="section-padding bg-[#080808] flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12 relative overflow-hidden">
       <FilmGrain />
       <CursorSpotlight />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 60% at 0% 100%, rgba(185,28,28,0.1) 0%, transparent 70%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 60% at 0% 100%, rgba(201,168,76,0.1) 0%, transparent 70%)" }} />
 
       <div className="relative z-10">
         {["READY TO BUILD", "SOMETHING BIG?"].map((line, i) => (
@@ -989,13 +1033,13 @@ function CtaSection() {
         <Link
           href="/contact"
           ref={btnRef as React.Ref<HTMLAnchorElement>}
-          className="relative inline-flex items-center gap-4 px-10 py-5 bg-[#B91C1C] text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase overflow-hidden group"
+          className="relative inline-flex items-center gap-4 px-10 py-5 bg-[#C9A84C] text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase overflow-hidden group"
           onMouseMove={onBtnMove}
           onMouseLeave={onBtnLeave}
         >
           <span className="absolute inset-0 bg-[#F5E6D0] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-          <span className="relative z-10 group-hover:text-[#B91C1C] transition-colors duration-300">Let&apos;s Talk</span>
-          <svg className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 group-hover:text-[#B91C1C]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+          <span className="relative z-10 group-hover:text-[#C9A84C] transition-colors duration-300">Let&apos;s Talk</span>
+          <svg className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 group-hover:text-[#C9A84C]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </Link>
