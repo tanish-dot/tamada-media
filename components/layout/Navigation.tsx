@@ -58,11 +58,11 @@ export default function Navigation() {
       >
         <div className="flex items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" style={{ marginLeft: "-20px", marginTop: "15px" }} className="flex items-center">
+          <Link href="/" className="flex items-center">
             <img
               src="/logo.png"
               alt="Tamada Media"
-              className="w-65 h-75 object-contain"
+              className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
               style={{ filter: "invert(1) hue-rotate(180deg)" }}
             />
           </Link>

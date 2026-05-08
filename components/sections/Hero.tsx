@@ -34,13 +34,12 @@ const OTT_COL_B  = [...OTT_COL_A].reverse();
 const MICRO_COL_A = [MICRO_IMGS[0], MICRO_IMGS[2], MICRO_IMGS[4], MICRO_IMGS[6], MICRO_IMGS[1], MICRO_IMGS[3], MICRO_IMGS[5], MICRO_IMGS[7], MICRO_IMGS[0], MICRO_IMGS[2]];
 const MICRO_COL_B = [...MICRO_COL_A].reverse();
 
-// Col 0 & 2: Micro-dramas (16/9) — mobile hidden
-// Col 1 & 3: OTT (2/3 portrait) — always visible
-const COLUMNS: { imgs: string[]; aspect: string; duration: number; offset: number; mobileHide: boolean }[] = [
-  { imgs: MICRO_COL_A, aspect: "16/9", duration: 280, offset: 0,  mobileHide: true  },
-  { imgs: OTT_COL_A,   aspect: "2/3",  duration: 250, offset: 15, mobileHide: false },
-  { imgs: MICRO_COL_B, aspect: "16/9", duration: 260, offset: 10, mobileHide: true  },
-  { imgs: OTT_COL_B,   aspect: "2/3",  duration: 230, offset: 25, mobileHide: false },
+// Col 0 & 2: Micro-dramas (16/9) — Col 1 & 3: OTT (2/3 portrait)
+const COLUMNS: { imgs: string[]; aspect: string; duration: number; offset: number }[] = [
+  { imgs: MICRO_COL_A, aspect: "16/9", duration: 280, offset: 0  },
+  { imgs: OTT_COL_A,   aspect: "2/3",  duration: 250, offset: 15 },
+  { imgs: MICRO_COL_B, aspect: "16/9", duration: 260, offset: 10 },
+  { imgs: OTT_COL_B,   aspect: "2/3",  duration: 230, offset: 25 },
 ];
 
 // ─── Ticker + Stats data ───────────────────────────────────────────────────────
@@ -70,7 +69,7 @@ export default function Hero() {
           return (
             <div
               key={ci}
-              className={`flex-1 overflow-hidden shrink-0${col.mobileHide ? " hidden sm:block" : ""}`}
+              className="flex-1 overflow-hidden shrink-0"
               style={{ contain: "layout paint" }}
             >
               <motion.div
