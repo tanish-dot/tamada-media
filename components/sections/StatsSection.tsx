@@ -150,13 +150,14 @@ function PlatformBlock({
         ))}
       </div>
 
-      {/* Mobile: compact horizontal stat row */}
+      {/* Mobile: spacious flat stat cards */}
       <div className="sm:hidden grid grid-cols-2 gap-3">
         {stats.map((stat, si) => (
           <motion.div
             key={si}
-            className="py-4 px-4 relative"
+            className="relative flex flex-col justify-between"
             style={{
+              padding: "1.25rem 1.1rem 1.1rem",
               background: "rgba(14,14,14,0.95)",
               border: `1px solid rgba(245,230,208,0.07)`,
               borderTop: `2px solid ${color}`,
@@ -165,8 +166,10 @@ function PlatformBlock({
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: delay + 0.1 + si * 0.07, ease: ENTRANCE_EASE }}
           >
-            <p className="font-display text-[clamp(1.6rem,7vw,2.2rem)] leading-none text-[#F5E6D0]">{stat.value}</p>
-            <p className="text-[8px] text-[#F5E6D0]/30 tracking-[0.22em] uppercase mt-2">{stat.label}</p>
+            {/* Subtle corner accent */}
+            <span className="absolute top-0 right-0 w-3 h-[2px]" style={{ background: color, opacity: 0.4 }} />
+            <p className="font-display text-[clamp(1.8rem,8vw,2.6rem)] leading-none text-[#F5E6D0] mb-3">{stat.value}</p>
+            <p className="text-[8px] text-[#F5E6D0]/45 tracking-[0.2em] uppercase leading-snug">{stat.label}</p>
           </motion.div>
         ))}
       </div>
