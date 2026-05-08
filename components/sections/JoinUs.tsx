@@ -78,8 +78,8 @@ export default function JoinUs() {
       <div className="relative z-10">
 
         {/* Upper block: eyebrow + headline */}
-        <div className="section-padding pt-12 lg:pt-28 pb-10 lg:pb-20">
-          <motion.div className="flex items-center gap-3 mb-10"
+        <div className="section-padding pt-12 lg:pt-28 pb-8 lg:pb-20">
+          <motion.div className="flex items-center gap-3 mb-5 lg:mb-10"
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.5 }}
           >
             <span className="block w-5 h-px bg-[#C9A84C]" />
@@ -136,8 +136,8 @@ export default function JoinUs() {
             </div>
           </div>
 
-          {/* Col 3 — white */}
-          <div className="flex-1 bg-[#F5E6D0] section-padding py-10 lg:py-12 flex flex-col justify-between gap-10">
+          {/* Col 3 — CTA */}
+          <div className="flex-1 bg-[#F5E6D0] section-padding py-7 lg:py-12 flex flex-col justify-center gap-5 lg:justify-between lg:gap-10">
             <p className="text-[#080808]/70 text-sm leading-[1.85]">
               Think you belong here?<br />Let&apos;s find out.
             </p>

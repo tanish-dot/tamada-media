@@ -151,7 +151,7 @@ export default function Hero() {
           <div className="overflow-hidden">
             <motion.span
               className="block text-[#F5E6D0]"
-              style={{ fontSize: "clamp(2.6rem, 9.5vw, 11.5rem)", lineHeight: 0.92 }}
+              style={{ fontSize: "clamp(3.6rem, 9.5vw, 11.5rem)", lineHeight: 0.92 }}
               initial={{ y: "106%", skewY: 1.5 }}
               animate={ready ? { y: "0%", skewY: 0 } : {}}
               transition={{ duration: 1.0, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
@@ -162,7 +162,7 @@ export default function Hero() {
           <div className="overflow-hidden mt-1">
             <motion.span
               className="block text-[#F5E6D0]/25 tracking-wide"
-              style={{ fontSize: "clamp(1.6rem, 6.5vw, 8rem)", lineHeight: 0.95 }}
+              style={{ fontSize: "clamp(2.4rem, 6.5vw, 8rem)", lineHeight: 0.95 }}
               initial={{ y: "106%", skewY: 1.5 }}
               animate={ready ? { y: "0%", skewY: 0 } : {}}
               transition={{ duration: 1.0, delay: 0.42, ease: [0.16, 1, 0.3, 1] }}
@@ -173,7 +173,7 @@ export default function Hero() {
           <div className="overflow-hidden">
             <motion.span
               className="block text-[#F5E6D0]"
-              style={{ fontSize: "clamp(3.5rem, 13vw, 16rem)", lineHeight: 0.88 }}
+              style={{ fontSize: "clamp(5rem, 13vw, 16rem)", lineHeight: 0.88 }}
               initial={{ y: "106%", skewY: 1.5 }}
               animate={ready ? { y: "0%", skewY: 0 } : {}}
               transition={{ duration: 1.05, delay: 0.56, ease: [0.16, 1, 0.3, 1] }}
