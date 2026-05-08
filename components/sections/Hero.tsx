@@ -74,7 +74,7 @@ export default function Hero() {
           const toY   = `-${off + 50}%`;
           const doubled = [...col.imgs, ...col.imgs];
           return (
-            <div key={ci} className={`flex-1 overflow-hidden shrink-0 ${ci === 1 || ci === 3 ? "hidden sm:block" : ""}`} style={{ contain: "layout paint" }}>
+            <div key={ci} className="flex-1 overflow-hidden shrink-0" style={{ contain: "layout paint" }}>
               <motion.div
                 className="flex flex-col gap-4"
                 style={{ willChange: "transform", transform: "translateZ(0)" }}

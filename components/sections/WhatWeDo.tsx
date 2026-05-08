@@ -305,32 +305,95 @@ export default function WhatWeDo() {
               </AnimatePresence>
             </div>
 
-            {/* Mobile: numbered list */}
-            <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#F5E6D0]/[0.06]">
-              {ALL.map((svc, i) => (
-                <motion.div
-                  key={svc.id}
-                  className="bg-[#080808] p-6 flex flex-col gap-3"
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.04, ease: EASE }}
-                >
-                  <span className="font-display text-[10px] tracking-[0.35em] text-[#C9A84C]">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-display text-[#F5E6D0] text-xl leading-tight">{svc.title}</h3>
-                  <p className="text-[#F5E6D0]/45 text-sm leading-relaxed">{svc.desc}</p>
-                  <a
-                    href={`mailto:info@tamadamedia.com?subject=Inquiry about ${encodeURIComponent(svc.title)}`}
-                    className="mt-2 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-[#C9A84C] hover:text-[#F5E6D0] transition-colors duration-300 group"
-                  >
-                    Let&apos;s Talk
-                    <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </a>
-                </motion.div>
-              ))}
+            {/* Mobile: interactive panel + tappable list */}
+            <div className="lg:hidden w-full">
+
+              {/* Active service detail card */}
+              <div className="relative border border-[#F5E6D0]/[0.08] mb-6 overflow-hidden"
+                style={{ background: "rgba(14,14,14,0.95)" }}>
+                {/* Gold corner accents */}
+                <span className="absolute top-0 left-0 w-6 h-[2px] bg-[#C9A84C]" />
+                <span className="absolute top-0 left-0 h-6 w-[2px] bg-[#C9A84C]" />
+                <span className="absolute bottom-0 right-0 w-6 h-[2px] bg-[#C9A84C]" />
+                <span className="absolute bottom-0 right-0 h-6 w-[2px] bg-[#C9A84C]" />
+
+                <AnimatePresence mode="wait">
+                  {svc ? (
+                    <motion.div
+                      key={active}
+                      className="p-6"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3, ease: EASE }}
+                    >
+                      <p className="text-[9px] tracking-[0.4em] uppercase text-[#C9A84C] font-bold mb-4">
+                        {String((active ?? 0) + 1).padStart(2, "0")} / {String(ALL.length).padStart(2, "0")}
+                      </p>
+                      <h3 className="font-display text-[#F5E6D0] leading-tight mb-3"
+                        style={{ fontSize: "clamp(1.6rem,6vw,2.4rem)" }}>
+                        {svc.title}
+                      </h3>
+                      <p className="text-[10px] tracking-[0.25em] uppercase text-[#C9A84C] font-bold mb-4">
+                        {svc.tagline}
+                      </p>
+                      <p className="text-[#F5E6D0]/55 text-sm leading-[1.85] mb-5">{svc.desc}</p>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="w-4 h-px bg-[#C9A84C]" />
+                          <span className="text-[9px] tracking-[0.3em] uppercase text-[#F5E6D0]/30">{svc.stat}</span>
+                        </div>
+                        <a
+                          href={`mailto:info@tamadamedia.com?subject=Inquiry about ${encodeURIComponent(svc.title)}`}
+                          className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C9A84C] text-[#F5E6D0] text-[9px] font-bold tracking-[0.2em] uppercase"
+                        >
+                          Let&apos;s Talk
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </a>
+                      </div>
+                    </motion.div>
+                  ) : (
+                    <motion.div key="idle" className="p-6 flex items-center justify-center h-40"
+                      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                      <p className="text-[#F5E6D0]/20 text-sm text-center">Tap a service below to explore</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Tappable service index */}
+              <div className="flex flex-col divide-y divide-[#F5E6D0]/[0.06]">
+                {ALL.map((s, i) => {
+                  const isActive = active === i;
+                  return (
+                    <motion.button
+                      key={s.id}
+                      className="w-full flex items-center gap-4 py-3.5 text-left group"
+                      onClick={() => { setPaused(true); setActive(i); setTimeout(() => setPaused(false), 4000); }}
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.4, delay: i * 0.03, ease: EASE }}
+                    >
+                      <span className="font-display text-[10px] tracking-[0.35em] shrink-0"
+                        style={{ color: isActive ? "#C9A84C" : "rgba(245,230,208,0.25)" }}>
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-display flex-1 leading-tight transition-colors duration-200"
+                        style={{
+                          fontSize: "clamp(0.9rem,3.5vw,1.1rem)",
+                          color: isActive ? "#F5E6D0" : "rgba(245,230,208,0.45)",
+                        }}>
+                        {s.title}
+                      </span>
+                      {isActive && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] shrink-0" />
+                      )}
+                    </motion.button>
+                  );
+                })}
+              </div>
             </div>
 
           </div>

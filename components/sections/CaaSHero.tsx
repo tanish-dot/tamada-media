@@ -81,7 +81,7 @@ export default function CaaSHero() {
             {/* Headline */}
             <div className="overflow-hidden mb-1">
               <motion.h1
-                className="font-display text-[clamp(4.5rem,11vw,14rem)] leading-[0.85] text-[#F5E6D0]"
+                className="font-display text-[clamp(3.2rem,11vw,14rem)] leading-[0.85] text-[#F5E6D0]"
                 initial={{ y: "110%" }}
                 animate={inView ? { y: "0%" } : {}}
                 transition={{ duration: 0.9, delay: 0.3, ease: EASE }}
@@ -91,7 +91,7 @@ export default function CaaSHero() {
             </div>
             <div className="overflow-hidden mb-1">
               <motion.h1
-                className="font-display text-[clamp(4.5rem,11vw,14rem)] leading-[0.85] text-[#F5E6D0]"
+                className="font-display text-[clamp(3.2rem,11vw,14rem)] leading-[0.85] text-[#F5E6D0]"
                 initial={{ y: "110%" }}
                 animate={inView ? { y: "0%" } : {}}
                 transition={{ duration: 0.9, delay: 0.42, ease: EASE }}
@@ -101,7 +101,7 @@ export default function CaaSHero() {
             </div>
             <div>
               <motion.h1
-                className="font-display text-[clamp(4.5rem,11vw,14rem)] leading-[0.85] text-[#C9A84C]"
+                className="font-display text-[clamp(3.2rem,11vw,14rem)] leading-[0.85] text-[#C9A84C]"
                 initial={{ y: "110%", opacity: 0 }}
                 animate={inView ? { y: "0%", opacity: 1 } : {}}
                 transition={{ duration: 0.9, delay: 0.54, ease: EASE }}
@@ -123,7 +123,6 @@ export default function CaaSHero() {
           {/* ── Right: Entropy ── */}
           <motion.div
             className="flex-1 flex flex-col items-center justify-end gap-6"
-            style={{ paddingLeft: 60 }}
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1.0, delay: 0.65, ease: EASE }}
@@ -147,7 +146,7 @@ export default function CaaSHero() {
 
         {/* Stats row */}
         <motion.div
-          className="mt-12 pt-8 border-t border-[#F5E6D0]/[0.07] flex items-center gap-10 lg:gap-16 flex-wrap"
+          className="mt-12 pt-8 border-t border-[#F5E6D0]/[0.07] flex items-center gap-6 sm:gap-10 lg:gap-16 flex-wrap"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 1.0 }}
