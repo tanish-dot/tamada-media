@@ -72,7 +72,7 @@ export default function WhatWeDo() {
         </div>
 
         {/* ── Wheel (desktop) + List (mobile) ── */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-12 lg:gap-20">
 
           {/* Wheel */}
           <motion.div
@@ -338,21 +338,19 @@ export default function WhatWeDo() {
                         {svc.tagline}
                       </p>
                       <p className="text-[#F5E6D0]/55 text-sm leading-[1.85] mb-5">{svc.desc}</p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="w-4 h-px bg-[#C9A84C]" />
-                          <span className="text-[9px] tracking-[0.3em] uppercase text-[#F5E6D0]/30">{svc.stat}</span>
-                        </div>
-                        <a
-                          href={`mailto:info@tamadamedia.com?subject=Inquiry about ${encodeURIComponent(svc.title)}`}
-                          className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C9A84C] text-[#F5E6D0] text-[9px] font-bold tracking-[0.2em] uppercase"
-                        >
-                          Let&apos;s Talk
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </a>
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className="w-4 h-px bg-[#C9A84C]" />
+                        <span className="text-[9px] tracking-[0.3em] uppercase text-[#F5E6D0]/30">{svc.stat}</span>
                       </div>
+                      <a
+                        href={`mailto:info@tamadamedia.com?subject=Inquiry about ${encodeURIComponent(svc.title)}`}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C9A84C] text-[#F5E6D0] text-[9px] font-bold tracking-[0.2em] uppercase"
+                      >
+                        Let&apos;s Talk
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                          <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </a>
                     </motion.div>
                   ) : (
                     <motion.div key="idle" className="p-6 flex items-center justify-center h-40"

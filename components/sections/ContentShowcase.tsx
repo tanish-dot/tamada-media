@@ -47,11 +47,23 @@ const TILT = [
 ];
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-const ROW_H = 360;
 
 export default function ContentShowcase() {
   const headerRef    = useRef<HTMLDivElement>(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-60px" });
+
+  const [ROW_H, setROW_H] = useState(360);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const update = () => {
+      const mobile = window.innerWidth < 640;
+      setIsMobile(mobile);
+      setROW_H(mobile ? 200 : 360);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   /* ── Drag-to-scroll rail ── */
   const railRef   = useRef<HTMLDivElement>(null);
@@ -236,13 +248,13 @@ export default function ContentShowcase() {
       <div className="relative" style={{ height: ROW_H + 100 }}>
 
         {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 z-20 pointer-events-none" style={{ width: 120, background: "linear-gradient(to right, #060606 30%, transparent)" }} />
-        <div className="absolute right-0 top-0 bottom-0 z-20 pointer-events-none" style={{ width: 120, background: "linear-gradient(to left, #060606 30%, transparent)" }} />
+        <div className="absolute left-0 top-0 bottom-0 z-20 pointer-events-none" style={{ width: isMobile ? 40 : 120, background: "linear-gradient(to right, #060606 30%, transparent)" }} />
+        <div className="absolute right-0 top-0 bottom-0 z-20 pointer-events-none" style={{ width: isMobile ? 40 : 120, background: "linear-gradient(to left, #060606 30%, transparent)" }} />
 
         {/* Draggable rail */}
         <div
           className="h-full overflow-hidden select-none"
-          style={{ perspective: "900px", perspectiveOrigin: "50% 50%", cursor: grabbing ? "grabbing" : "grab" }}
+          style={{ perspective: isMobile ? "none" : "900px", perspectiveOrigin: "50% 50%", cursor: grabbing ? "grabbing" : "grab" }}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
@@ -258,6 +270,9 @@ export default function ContentShowcase() {
           >
             {DOUBLED.map((card, i) => {
               const t = TILT[i % TILT.length];
+              const mTransform = isMobile
+                ? `translateY(${t.y * 0.3}px) scale(${t.scale})`
+                : `rotateY(${t.ry}deg) rotateZ(${t.rz}deg) translateY(${t.y}px) scale(${t.scale})`;
               const Wrap = card.url ? "a" : "div";
               const wrapProps = card.url ? { href: card.url, target: "_blank", rel: "noopener noreferrer" } : {};
               return (
@@ -268,17 +283,19 @@ export default function ContentShowcase() {
                   style={{
                     height: ROW_H,
                     borderRadius: "3px",
-                    transform: `rotateY(${t.ry}deg) rotateZ(${t.rz}deg) translateY(${t.y}px) scale(${t.scale})`,
+                    transform: mTransform,
                     boxShadow: "0 30px 80px rgba(0,0,0,0.8), 0 8px 24px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.06)",
                     transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1)",
                   }}
                   onMouseEnter={(e) => {
+                    if (isMobile) return;
                     const el = e.currentTarget;
                     el.style.transform = `rotateY(${t.ry * 0.15}deg) rotateZ(${t.rz * 0.15}deg) translateY(${t.y - 18}px) scale(${t.scale + 0.09})`;
                     el.style.boxShadow = "0 40px 100px rgba(0,0,0,0.85), 0 0 60px rgba(201,168,76,0.2), inset 0 0 0 1px rgba(201,168,76,0.35)";
                     el.style.zIndex = "30";
                   }}
                   onMouseLeave={(e) => {
+                    if (isMobile) return;
                     const el = e.currentTarget;
                     el.style.transform = `rotateY(${t.ry}deg) rotateZ(${t.rz}deg) translateY(${t.y}px) scale(${t.scale})`;
                     el.style.boxShadow = "0 30px 80px rgba(0,0,0,0.8), 0 8px 24px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.06)";
