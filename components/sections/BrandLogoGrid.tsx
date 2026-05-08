@@ -100,7 +100,7 @@ export default function BrandLogoGrid() {
               <img
                 src={src}
                 alt=""
-                className="max-h-16 lg:max-h-20 max-w-full object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100"
+                className="max-h-16 lg:max-h-20 max-w-full object-contain transition-opacity duration-300 opacity-100 sm:opacity-60 sm:group-hover:opacity-100"
                 style={{ mixBlendMode: "multiply" }}
               />
             </motion.div>
