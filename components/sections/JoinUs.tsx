@@ -78,7 +78,7 @@ export default function JoinUs() {
       <div className="relative z-10">
 
         {/* Upper block: eyebrow + headline */}
-        <div className="section-padding pt-20 lg:pt-28 pb-16 lg:pb-20">
+        <div className="section-padding pt-12 lg:pt-28 pb-10 lg:pb-20">
           <motion.div className="flex items-center gap-3 mb-10"
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.5 }}
           >
@@ -112,24 +112,27 @@ export default function JoinUs() {
           initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.35, ease: EASE }}
         >
-          {/* Col 1 */}
-          <div className="flex-1 section-padding py-10 lg:py-12 border-b lg:border-b-0 lg:border-r border-[#080808]/12">
-            <p className="text-[9px] tracking-[0.38em] uppercase text-[#080808]/35 font-bold mb-4">Who We Want</p>
-            <p className="text-[#080808]/55 text-sm leading-[1.9]">
-              People obsessed with content, who move without being told, and feel physically uncomfortable watching bad creative work.
-            </p>
-          </div>
+          {/* Col 1 + 2: on mobile side by side */}
+          <div className="flex flex-row lg:contents">
+            {/* Col 1 */}
+            <div className="flex-1 px-5 py-7 lg:section-padding lg:py-12 border-b-0 lg:border-b-0 border-r border-[#080808]/12 lg:border-r border-[#080808]/12">
+              <p className="text-[8px] tracking-[0.35em] uppercase text-[#080808]/35 font-bold mb-3">Who We Want</p>
+              <p className="text-[#080808]/55 text-xs leading-[1.75]">
+                People obsessed with content, who move without being told, and feel physically uncomfortable watching bad creative work.
+              </p>
+            </div>
 
-          {/* Col 2 */}
-          <div className="flex-1 section-padding py-10 lg:py-12 border-b lg:border-b-0 lg:border-r border-[#080808]/12">
-            <p className="text-[9px] tracking-[0.38em] uppercase text-[#080808]/35 font-bold mb-6">The Team</p>
-            <div className="flex gap-8 lg:gap-10">
-              {[["200+", "People"], ["8+", "Years"], ["#1", "South India"]].map(([v, l]) => (
-                <div key={l}>
-                  <p className="font-display text-[#080808] leading-none mb-1.5" style={{ fontSize: "clamp(1.8rem,2.8vw,2.8rem)" }}>{v}</p>
-                  <p className="text-[9px] tracking-[0.22em] uppercase text-[#080808]/35">{l}</p>
-                </div>
-              ))}
+            {/* Col 2 */}
+            <div className="flex-1 px-5 py-7 lg:section-padding lg:py-12 lg:border-r border-[#080808]/12">
+              <p className="text-[8px] tracking-[0.35em] uppercase text-[#080808]/35 font-bold mb-4">The Team</p>
+              <div className="flex flex-col gap-3 lg:flex-row lg:gap-10">
+                {[["200+", "People"], ["8+", "Years"], ["#1", "S. India"]].map(([v, l]) => (
+                  <div key={l}>
+                    <p className="font-display text-[#080808] leading-none mb-1" style={{ fontSize: "clamp(1.4rem,5vw,2.8rem)" }}>{v}</p>
+                    <p className="text-[8px] tracking-[0.2em] uppercase text-[#080808]/35">{l}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

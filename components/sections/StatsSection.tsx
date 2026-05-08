@@ -137,7 +137,8 @@ function PlatformBlock({
         </span>
       </motion.div>
 
-      <div className="grid grid-cols-2 gap-4">
+      {/* Desktop: 2x2 tilt cards */}
+      <div className="hidden sm:grid grid-cols-2 gap-4">
         {stats.map((stat, i) => (
           <StatCard
             key={i}
@@ -146,6 +147,27 @@ function PlatformBlock({
             inView={inView}
             delay={delay + 0.12 + i * 0.09}
           />
+        ))}
+      </div>
+
+      {/* Mobile: compact horizontal stat row */}
+      <div className="sm:hidden grid grid-cols-2 gap-3">
+        {stats.map((stat, si) => (
+          <motion.div
+            key={si}
+            className="py-4 px-4 relative"
+            style={{
+              background: "rgba(14,14,14,0.95)",
+              border: `1px solid rgba(245,230,208,0.07)`,
+              borderTop: `2px solid ${color}`,
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: delay + 0.1 + si * 0.07, ease: ENTRANCE_EASE }}
+          >
+            <p className="font-display text-[clamp(1.6rem,7vw,2.2rem)] leading-none text-[#F5E6D0]">{stat.value}</p>
+            <p className="text-[8px] text-[#F5E6D0]/30 tracking-[0.22em] uppercase mt-2">{stat.label}</p>
+          </motion.div>
         ))}
       </div>
     </div>
