@@ -21,10 +21,16 @@ export default function CursorGlow() {
     /* Only run on pointer:fine devices (no cursor on touch) */
     if (!window.matchMedia("(pointer: fine)").matches) return;
 
+    let entered = false;
     const onMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY };
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
+      if (!entered) {
+        entered = true;
+        if (dotRef.current)  dotRef.current.style.opacity  = "1";
+        if (ringRef.current) ringRef.current.style.opacity = "1";
+      }
     };
 
     const onOver = (e: MouseEvent) => {
@@ -100,8 +106,10 @@ export default function CursorGlow() {
           height: 5,
           borderRadius: "50%",
           background: "#F5E6D0",
+          opacity: 0,
           transition: "opacity 0.2s",
           willChange: "transform",
+          transform: "translate(-999px,-999px) translate(-50%,-50%)",
         }}
       />
 
@@ -115,8 +123,10 @@ export default function CursorGlow() {
           height: 30,
           borderRadius: "50%",
           border: "1.5px solid rgba(245,230,208,0.75)",
-          transition: "width 0.22s ease, height 0.22s ease, background 0.22s ease",
+          opacity: 0,
+          transition: "width 0.22s ease, height 0.22s ease, background 0.22s ease, opacity 0.3s",
           willChange: "transform",
+          transform: "translate(-999px,-999px) translate(-50%,-50%)",
         }}
       />
     </>
