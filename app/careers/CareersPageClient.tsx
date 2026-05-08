@@ -106,7 +106,7 @@ function RoleRow({ role, delay }: { role: { title: string; type: string; locatio
   return (
     <motion.a
       href="mailto:recruitment@tamadamedia.com"
-      className="relative flex items-center justify-between py-5 border-t border-[#F5E6D0]/[0.06] overflow-hidden cursor-pointer group"
+      className="relative flex items-center justify-between py-4 lg:py-5 border-t border-[#F5E6D0]/[0.06] overflow-hidden cursor-pointer group"
       initial={{ opacity: 0, x: -12 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -129,7 +129,7 @@ function RoleRow({ role, delay }: { role: { title: string; type: string; locatio
       />
 
       <motion.span
-        className="font-display relative pl-4"
+        className="font-display relative pl-4 min-w-0 truncate mr-4"
         style={{ fontSize: "clamp(1rem, 1.8vw, 1.5rem)", lineHeight: 1 }}
         animate={{ color: hovered ? "#F5E6D0" : "rgba(245,230,208,0.65)" }}
         transition={{ duration: 0.25 }}
@@ -137,7 +137,7 @@ function RoleRow({ role, delay }: { role: { title: string; type: string; locatio
         {role.title}
       </motion.span>
 
-      <div className="flex items-center gap-6 lg:gap-10 shrink-0 relative">
+      <div className="flex items-center gap-4 lg:gap-6 lg:gap-10 shrink-0 relative">
         <span
           className="text-[9px] tracking-[0.28em] uppercase font-bold hidden lg:block"
           style={{ color: hovered ? "rgba(245,230,208,0.4)" : "rgba(245,230,208,0.15)", transition: "color 0.25s" }}
@@ -255,7 +255,7 @@ function HeroSection() {
 
         {/* Stats bar */}
         <motion.div
-          className="pt-10 border-t border-[#F5E6D0]/[0.07] flex flex-wrap gap-10 lg:gap-16"
+          className="pt-10 border-t border-[#F5E6D0]/[0.07] flex flex-wrap gap-6 sm:gap-10 lg:gap-16"
           initial={{ opacity: 0 }}
           animate={ready ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 1.0 }}
@@ -483,8 +483,8 @@ function PitchSection() {
         </motion.div>
 
         {[
-          { text: "PITCH US",  size: "clamp(3.5rem,8vw,11rem)", color: "#F5E6D0" },
-          { text: "ANYWAY.",   size: "clamp(3.5rem,8vw,11rem)", color: "rgba(245,230,208,0.25)" },
+          { text: "PITCH US",  size: "clamp(2.8rem,8vw,11rem)", color: "#F5E6D0" },
+          { text: "ANYWAY.",   size: "clamp(2.8rem,8vw,11rem)", color: "rgba(245,230,208,0.25)" },
         ].map((line, i) => (
           <div key={i} className="overflow-hidden">
             <motion.h2

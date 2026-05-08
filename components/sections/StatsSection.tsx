@@ -68,7 +68,7 @@ function StatCard({
           boxShadow: `0 32px 80px rgba(0,0,0,0.75), 0 0 40px ${color}18, 0 1px 0 rgba(245,230,208,0.08) inset`,
           transition: { duration: 0.2 },
         }}
-        className="relative overflow-hidden px-10 lg:px-14 py-14 lg:py-16 cursor-default"
+        className="relative overflow-hidden px-5 lg:px-14 py-8 lg:py-16 cursor-default"
       >
         {/* Moving specular highlight */}
         <motion.div

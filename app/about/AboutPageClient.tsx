@@ -233,7 +233,7 @@ function HeroSection() {
       </motion.div>
 
       {/* Main content */}
-      <div className="relative z-10 flex-1 flex flex-col section-padding" style={{ marginLeft: "20px" }}>
+      <div className="relative z-10 flex-1 flex flex-col section-padding">
 
         {/* Top row: eyebrow + est. year */}
         <motion.div
@@ -261,7 +261,7 @@ function HeroSection() {
             transition={{ duration: 1.1, delay: 0.3, ease: EASE }}
           />
 
-          <div className="max-w-[70%]">
+          <div className="max-w-[85%] lg:max-w-[70%]">
             {[
               { text: "YEARS OF",   color: "text-[#F5E6D0]/25", size: "clamp(1.8rem,4vw,5.5rem)" },
               { text: "BUILDING",   color: "text-[#F5E6D0]",    size: "clamp(3rem,7.5vw,10rem)" },

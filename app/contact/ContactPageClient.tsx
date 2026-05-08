@@ -81,9 +81,9 @@ export default function ContactPageClient() {
               Whether it&apos;s a campaign, a collab, or just a question — we&apos;re one email away.
             </p>
             <a href={`mailto:${BRAND.email.primary}`}
-              className="group flex items-center gap-4 text-[#F5E6D0]/60 hover:text-[#F5E6D0] transition-colors duration-300"
+              className="group flex flex-wrap items-center gap-4 text-[#F5E6D0]/60 hover:text-[#F5E6D0] transition-colors duration-300"
             >
-              <span className="font-display text-[clamp(1rem,1.8vw,1.6rem)] tracking-wide">{BRAND.email.primary}</span>
+              <span className="font-display text-[clamp(1rem,1.8vw,1.6rem)] tracking-wide break-all">{BRAND.email.primary}</span>
               <span className="w-10 h-10 border border-[#F5E6D0]/15 group-hover:border-[#C9A84C] group-hover:bg-[#C9A84C] flex items-center justify-center transition-all duration-300 flex-shrink-0">
                 <svg className="w-4 h-4 group-hover:text-[#F5E6D0]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />

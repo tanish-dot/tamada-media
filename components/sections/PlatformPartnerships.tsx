@@ -147,7 +147,6 @@ export default function PlatformPartnerships() {
         <div>
           <motion.div
             className="flex items-center gap-3 mb-3"
-            style={{ marginLeft: "-50px" }}
             initial={{ opacity: 0, x: -16 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, ease: EASE }}
@@ -157,7 +156,7 @@ export default function PlatformPartnerships() {
               Platform Partnerships
             </span>
           </motion.div>
-          <div className="overflow-hidden" style={{ marginLeft: "-50px" }}>
+          <div className="overflow-hidden">
             <motion.h2
               className="font-display leading-[0.83]"
               style={{ fontSize: "clamp(3.5rem,7vw,9rem)" }}
@@ -196,7 +195,7 @@ export default function PlatformPartnerships() {
               className="relative overflow-hidden cursor-pointer"
               style={{
                 flex: isActive ? 4 : 1,
-                minHeight: isActive ? 360 : 80,
+                minHeight: isActive ? 300 : 72,
                 background: platform.bg,
                 borderRadius: "10px",
                 border: "1px solid rgba(245,230,208,0.15)",
