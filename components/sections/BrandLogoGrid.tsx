@@ -92,7 +92,7 @@ export default function BrandLogoGrid() {
           {BRAND_IMAGES.map((src, i) => (
             <motion.div
               key={src}
-              className="bg-white flex items-center justify-center p-4 lg:p-5 aspect-[3/2] group cursor-default"
+              className="bg-[#F5E6D0] flex items-center justify-center p-4 lg:p-5 aspect-[3/2] group cursor-default"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.35, delay: 0.2 + i * 0.016 }}
@@ -100,7 +100,7 @@ export default function BrandLogoGrid() {
               <img
                 src={src}
                 alt=""
-                className="max-h-16 lg:max-h-20 max-w-full object-contain transition-opacity duration-300 opacity-75 group-hover:opacity-100"
+                className="max-h-16 lg:max-h-20 max-w-full object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100"
                 style={{ mixBlendMode: "multiply" }}
               />
             </motion.div>
