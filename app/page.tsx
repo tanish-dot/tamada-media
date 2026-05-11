@@ -3,6 +3,7 @@ import WhatWeDo from "@/components/sections/WhatWeDo";
 import PlatformPartnerships from "@/components/sections/PlatformPartnerships";
 import ContentShowcase from "@/components/sections/ContentShowcase";
 import BrandLogoGrid from "@/components/sections/BrandLogoGrid";
+import CaaSPitch from "@/components/sections/CaaSPitch";
 import OriginalIPs from "@/components/sections/OriginalIPs";
 import Founders from "@/components/sections/Founders";
 import JoinUs from "@/components/sections/JoinUs";
@@ -21,6 +22,7 @@ export default function HomePage() {
       <SectionTransition><PlatformPartnerships /></SectionTransition>
       <MarqueeDivider bg="red" speed={25} />
       <SectionTransition><BrandLogoGrid /></SectionTransition>
+      <SectionTransition><CaaSPitch /></SectionTransition>
       <SectionTransition><OriginalIPs /></SectionTransition>
       <MarqueeDivider bg="dark" speed={40} reverse />
       <SectionTransition><Founders /></SectionTransition>
