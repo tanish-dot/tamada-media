@@ -56,14 +56,14 @@ export default function Navigation() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.0, ease: ENTRANCE_EASE }}
       >
-        <div className="flex items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 h-16 lg:h-[150px]">
+        <div className="flex items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img
               src="/logo.png"
               alt="Tamada Media"
               className="w-auto object-contain"
-              style={{ height: "clamp(56px, 10vw, 150px)", filter: "invert(1) hue-rotate(180deg)" }}
+              style={{ height: "clamp(40px, 5vw, 80px)", filter: "invert(1) hue-rotate(180deg)" }}
             />
           </Link>
 
