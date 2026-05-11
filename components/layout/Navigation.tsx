@@ -62,7 +62,7 @@ export default function Navigation() {
             <img
               src="/logo.png"
               alt="Tamada Media"
-              className="h-14 sm:h-16 lg:h-20 w-auto object-contain"
+              className="h-14 sm:h-16 lg:h-32 w-auto object-contain"
               style={{ filter: "invert(1) hue-rotate(180deg)" }}
             />
           </Link>
