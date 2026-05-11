@@ -270,8 +270,8 @@ export default function PlatformPartnerships() {
                               <StatCount value={s.value} />
                             </p>
                             <p
-                              className="text-[8px] tracking-[0.3em] uppercase mt-1"
-                              style={{ color: platform.text, opacity: 0.45 }}
+                              className="text-[10px] tracking-[0.3em] uppercase mt-1 font-semibold"
+                              style={{ color: platform.text, opacity: 0.9 }}
                             >
                               {s.label}
                             </p>
