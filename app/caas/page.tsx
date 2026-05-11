@@ -17,10 +17,10 @@ export default function CaaSPage() {
     <>
       <CaaSHero />
       <WhyNow />
-      <CaseStudyASBL />
       <div id="manifesto"><Manifesto /></div>
       <WhyTamada />
       <Process />
+      <CaseStudyASBL />
       <SouthIdentity />
       <FinalCTA />
     </>

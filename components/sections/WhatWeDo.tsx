@@ -408,7 +408,7 @@ export default function WhatWeDo() {
               animate={inView ? { y: "0%" } : {}}
               transition={{ duration: 1.0, delay: 0.1, ease: EASE }}
             >
-              ALL OF THE <span className="text-[#C9A84C]">ABOVE.</span>
+              ALL THIS <span className="text-[#C9A84C]">AND MORE.</span>
             </motion.h2>
           </div>
         </div>
