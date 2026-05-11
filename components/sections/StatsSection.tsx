@@ -90,7 +90,7 @@ function StatCard({
           <p className="font-display text-[clamp(3rem,5vw,6rem)] leading-none text-[#F5E6D0]">
             {stat.value}
           </p>
-          <p className="text-[10px] text-[#F5E6D0]/70 tracking-[0.28em] uppercase mt-4 font-medium">
+          <p className="text-[10px] text-[#F5E6D0] tracking-[0.28em] uppercase mt-4 font-medium">
             {stat.label}
           </p>
         </div>
@@ -169,7 +169,7 @@ function PlatformBlock({
             {/* Subtle corner accent */}
             <span className="absolute top-0 right-0 w-3 h-[2px]" style={{ background: color, opacity: 0.4 }} />
             <p className="font-display text-[clamp(1.8rem,8vw,2.6rem)] leading-none text-[#F5E6D0] mb-3">{stat.value}</p>
-            <p className="text-[8px] text-[#F5E6D0]/75 tracking-[0.2em] uppercase leading-snug">{stat.label}</p>
+            <p className="text-[8px] text-[#F5E6D0] tracking-[0.2em] uppercase leading-snug">{stat.label}</p>
           </motion.div>
         ))}
       </div>
