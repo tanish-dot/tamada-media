@@ -11,6 +11,7 @@ const OPEN_ROLES = [
     dept: "Content",
     num: "01",
     roles: [
+      { title: "Senior Graphic Designer",        type: "Full-time", location: "Hyderabad" },
       { title: "Senior Video Editor",            type: "Full-time", location: "Hyderabad" },
       { title: "Content Strategist",             type: "Full-time", location: "Hyderabad" },
       { title: "Scriptwriter — Telugu / Tamil",  type: "Full-time", location: "Hyderabad" },
