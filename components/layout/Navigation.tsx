@@ -63,7 +63,7 @@ export default function Navigation() {
               src="/logo.png"
               alt="Tamada Media"
               className="w-auto object-contain"
-              style={{ height: "clamp(56px, 10vw, 200px)", filter: "invert(1) hue-rotate(180deg)" }}
+              style={{ height: "clamp(56px, 10vw, 170px)", filter: "invert(1) hue-rotate(180deg)" }}
             />
           </Link>
 
