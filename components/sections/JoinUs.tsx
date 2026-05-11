@@ -137,7 +137,7 @@ export default function JoinUs() {
           </div>
 
           {/* Col 3 — CTA */}
-          <div className="flex-1 bg-[#F5E6D0] section-padding py-7 lg:py-12 flex flex-col justify-center gap-5 lg:justify-between lg:gap-10">
+          <div className="flex-1 bg-[#F5E6D0] section-padding py-7 lg:py-12 flex flex-col justify-center gap-5 lg:justify-center lg:gap-8">
             <p className="text-[#080808]/70 text-sm leading-[1.85]">
               Think you belong here?<br />Let&apos;s find out.
             </p>
