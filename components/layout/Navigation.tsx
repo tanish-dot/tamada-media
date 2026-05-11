@@ -56,7 +56,7 @@ export default function Navigation() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.0, ease: ENTRANCE_EASE }}
       >
-        <div className="flex items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 h-16 lg:h-20">
+        <div className="flex items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 h-16 lg:h-[150px]">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img
