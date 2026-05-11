@@ -77,67 +77,89 @@ export default function JoinUs() {
 
       <div className="relative z-10">
 
-        {/* Upper block: eyebrow + headline */}
-        <div className="section-padding pt-12 lg:pt-28 pb-8 lg:pb-20">
-          <motion.div className="flex items-center gap-3 mb-5 lg:mb-10"
+        {/* ── Upper block ── */}
+        <div className="section-padding pt-12 lg:pt-24 pb-10 lg:pb-16">
+
+          <motion.div className="flex items-center gap-3 mb-6 lg:mb-10"
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.5 }}
           >
             <span className="block w-5 h-px bg-[#C9A84C]" />
             <p className="text-[10px] tracking-[0.42em] uppercase text-[#C9A84C] font-bold">Careers</p>
           </motion.div>
 
-          <div className="overflow-hidden mb-1">
-            <motion.h2 className="font-display text-[#080808] leading-[0.88]"
-              style={{ fontSize: "clamp(4.5rem,10vw,14rem)" }}
-              initial={{ y: "108%" }} animate={inView ? { y: "0%" } : {}}
-              transition={{ duration: 0.95, delay: 0.08, ease: EASE }}
+          {/* Headline + right-side copy on desktop */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:gap-16">
+            <div className="shrink-0">
+              <div className="overflow-hidden mb-1">
+                <motion.h2 className="font-display text-[#080808] leading-[0.88]"
+                  style={{ fontSize: "clamp(4.5rem, 14vw, 14rem)" }}
+                  initial={{ y: "108%" }} animate={inView ? { y: "0%" } : {}}
+                  transition={{ duration: 0.95, delay: 0.08, ease: EASE }}
+                >
+                  BUILT FOR
+                </motion.h2>
+              </div>
+              <div className="overflow-hidden">
+                <motion.h2 className="font-display leading-[0.88]"
+                  style={{ fontSize: "clamp(4.5rem, 14vw, 14rem)", WebkitTextStroke: "2px #080808", color: "transparent" }}
+                  initial={{ y: "108%" }} animate={inView ? { y: "0%" } : {}}
+                  transition={{ duration: 0.95, delay: 0.16, ease: EASE }}
+                >
+                  THIS?
+                </motion.h2>
+              </div>
+            </div>
+
+            {/* Right-side descriptor — desktop only */}
+            <motion.p
+              className="hidden lg:block text-[#080808]/45 text-base leading-[1.9] max-w-xs mb-2"
+              initial={{ opacity: 0, y: 12 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4, ease: EASE }}
             >
-              BUILT FOR
-            </motion.h2>
-          </div>
-          <div className="overflow-hidden">
-            <motion.h2 className="font-display leading-[0.88]"
-              style={{ fontSize: "clamp(4.5rem,10vw,14rem)", WebkitTextStroke: "2px #080808", color: "transparent" }}
-              initial={{ y: "108%" }} animate={inView ? { y: "0%" } : {}}
-              transition={{ duration: 0.95, delay: 0.16, ease: EASE }}
-            >
-              THIS?
-            </motion.h2>
+              People obsessed with content, who move without being told, and feel physically uncomfortable watching bad creative work.
+            </motion.p>
           </div>
         </div>
 
-        {/* Bottom strip — full bleed, 3 cols with solid borders */}
+        {/* ── Bottom strip: CSS grid, 3 cols on desktop ── */}
         <motion.div
-          className="border-t border-[#080808]/12 flex flex-col lg:flex-row"
+          className="border-t border-[#080808]/12 grid grid-cols-2 lg:grid-cols-3"
           initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.35, ease: EASE }}
         >
-          {/* Col 1 + 2: on mobile side by side */}
-          <div className="flex flex-row lg:contents">
-            {/* Col 1 */}
-            <div className="flex-1 px-5 py-7 lg:section-padding lg:py-12 border-b-0 lg:border-b-0 border-r border-[#080808]/12 lg:border-r border-[#080808]/12">
-              <p className="text-[8px] tracking-[0.35em] uppercase text-[#080808]/35 font-bold mb-3">Who We Want</p>
-              <p className="text-[#080808]/55 text-xs leading-[1.75]">
-                People obsessed with content, who move without being told, and feel physically uncomfortable watching bad creative work.
-              </p>
-            </div>
 
-            {/* Col 2 */}
-            <div className="flex-1 px-5 py-7 lg:section-padding lg:py-12 lg:border-r border-[#080808]/12">
-              <p className="text-[8px] tracking-[0.35em] uppercase text-[#080808]/35 font-bold mb-4">The Team</p>
-              <div className="flex flex-col gap-3 lg:flex-row lg:gap-10">
-                {[["200+", "People"], ["8+", "Years"], ["#1", "S. India"]].map(([v, l]) => (
-                  <div key={l}>
-                    <p className="font-display text-[#080808] leading-none mb-1" style={{ fontSize: "clamp(1.4rem,5vw,2.8rem)" }}>{v}</p>
-                    <p className="text-[8px] tracking-[0.2em] uppercase text-[#080808]/35">{l}</p>
-                  </div>
-                ))}
-              </div>
+          {/* Col 1 — Who We Want (hidden on mobile, shown in headline area instead) */}
+          <div className="hidden lg:flex flex-col justify-center section-padding py-12 border-r border-[#080808]/12">
+            <p className="text-[8px] tracking-[0.35em] uppercase text-[#080808]/35 font-bold mb-3">Who We Want</p>
+            <p className="text-[#080808]/55 text-sm leading-[1.75]">
+              People obsessed with content, who move without being told, and feel physically uncomfortable watching bad creative work.
+            </p>
+          </div>
+
+          {/* Col 1 mobile only */}
+          <div className="lg:hidden px-5 py-6 border-r border-[#080808]/12">
+            <p className="text-[8px] tracking-[0.35em] uppercase text-[#080808]/35 font-bold mb-3">Who We Want</p>
+            <p className="text-[#080808]/55 text-xs leading-[1.75]">
+              People obsessed with content, who move without being told, and feel physically uncomfortable watching bad creative work.
+            </p>
+          </div>
+
+          {/* Col 2 — The Team */}
+          <div className="flex flex-col justify-center px-5 py-6 lg:section-padding lg:py-12 lg:border-r border-[#080808]/12">
+            <p className="text-[8px] tracking-[0.35em] uppercase text-[#080808]/35 font-bold mb-4">The Team</p>
+            <div className="flex flex-col gap-3 lg:flex-row lg:gap-10">
+              {[["200+", "People"], ["8+", "Years"], ["#1", "S. India"]].map(([v, l]) => (
+                <div key={l}>
+                  <p className="font-display text-[#080808] leading-none mb-1" style={{ fontSize: "clamp(1.4rem, 3vw, 2.8rem)" }}>{v}</p>
+                  <p className="text-[8px] tracking-[0.2em] uppercase text-[#080808]/35">{l}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Col 3 — CTA */}
-          <div className="flex-1 bg-[#F5E6D0] section-padding py-7 lg:py-12 flex flex-col justify-center gap-5 lg:justify-center lg:gap-8">
+          {/* Col 3 — CTA (spans 2 cols on mobile) */}
+          <div className="col-span-2 lg:col-span-1 section-padding py-8 lg:py-12 border-t border-[#080808]/12 lg:border-t-0 flex flex-col justify-center gap-5">
             <p className="text-[#080808]/70 text-sm leading-[1.85]">
               Think you belong here?<br />Let&apos;s find out.
             </p>
@@ -150,6 +172,7 @@ export default function JoinUs() {
               </svg>
             </Link>
           </div>
+
         </motion.div>
 
       </div>
