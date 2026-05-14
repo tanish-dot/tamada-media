@@ -55,7 +55,7 @@ export default function ContactPageClient() {
         <div className="flex-1 flex flex-col justify-center py-12">
           <div className="overflow-hidden mb-1">
             <motion.h1 className="font-display text-[#F5E6D0] leading-[0.85]"
-              style={{ fontSize: "clamp(5rem,14vw,18rem)" }}
+              style={{ fontSize: "clamp(3rem,14vw,18rem)" }}
               initial={{ y: "110%" }} animate={heroInView ? { y: "0%" } : {}}
               transition={{ duration: 0.9, delay: 0.3, ease: EASE }}
             >
@@ -64,7 +64,7 @@ export default function ContactPageClient() {
           </div>
           <div className="overflow-hidden">
             <motion.h1 className="font-display leading-[0.85]"
-              style={{ fontSize: "clamp(5rem,14vw,18rem)", WebkitTextStroke: "2px #F5E6D0", color: "transparent" }}
+              style={{ fontSize: "clamp(3rem,14vw,18rem)", WebkitTextStroke: "2px #F5E6D0", color: "transparent" }}
               initial={{ y: "110%" }} animate={heroInView ? { y: "0%" } : {}}
               transition={{ duration: 0.9, delay: 0.42, ease: EASE }}
             >
@@ -138,7 +138,7 @@ function EmailBlock() {
         <div className="overflow-hidden">
           <motion.p
             className="font-display text-[#080808] group-hover:text-[#C9A84C] transition-colors duration-500 leading-[0.88] break-all"
-            style={{ fontSize: "clamp(2.8rem,7.5vw,10rem)" }}
+            style={{ fontSize: "clamp(1.8rem,7.5vw,10rem)" }}
             initial={{ y: "108%" }} animate={inView ? { y: "0%" } : {}}
             transition={{ duration: 0.9, ease: EASE }}
           >

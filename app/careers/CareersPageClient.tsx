@@ -217,9 +217,9 @@ function HeroSection() {
         {/* Headline — fills full width */}
         <div className="flex-1 flex flex-col justify-center">
           {[
-            { text: "BUILD WITH",   color: "#F5E6D0",  size: "clamp(4rem,9.5vw,13.5rem)" },
-            { text: "THE BEST IN",  color: "rgba(245,230,208,0.22)", size: "clamp(4rem,9.5vw,13.5rem)" },
-            { text: "THE SOUTH.",   color: "#C9A84C",  size: "clamp(4rem,9.5vw,13.5rem)" },
+            { text: "BUILD WITH",   color: "#F5E6D0",  size: "clamp(2.2rem,9.5vw,13.5rem)" },
+            { text: "THE BEST IN",  color: "rgba(245,230,208,0.22)", size: "clamp(2.2rem,9.5vw,13.5rem)" },
+            { text: "THE SOUTH.",   color: "#C9A84C",  size: "clamp(2.2rem,9.5vw,13.5rem)" },
           ].map((line, i) => (
             <div key={i} className="overflow-hidden">
               <motion.h1
@@ -311,7 +311,7 @@ function WhySection() {
 
         <div className="overflow-hidden mb-16">
           <motion.h2
-            className="font-display text-[clamp(3rem,7vw,10rem)] leading-[0.87] text-[#0A0A0A]"
+            className="font-display text-[clamp(2rem,7vw,10rem)] leading-[0.87] text-[#0A0A0A]"
             initial={{ y: "108%" }}
             animate={inView ? { y: "0%" } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
@@ -344,8 +344,8 @@ function WhyRow({ point, index, inView }: { point: typeof WHY_POINTS[0]; index: 
     >
       <span className="font-display text-sm w-10 shrink-0" style={{ color: "#C9A84C" }}>{point.num}</span>
       <h3
-        className="font-display text-xl lg:text-3xl w-full lg:w-80 shrink-0 transition-colors duration-300"
-        style={{ color: hovered ? "#C9A84C" : "#0A0A0A" }}
+        className="font-display w-full lg:w-80 shrink-0 transition-colors duration-300"
+        style={{ fontSize: "clamp(1.1rem,2vw,1.875rem)", color: hovered ? "#C9A84C" : "#0A0A0A" }}
       >
         {point.title}
       </h3>
@@ -379,7 +379,7 @@ function RolesSection() {
         <div className="flex items-end justify-between mb-16">
           <div className="overflow-hidden">
             <motion.h2
-              className="font-display text-[clamp(2.5rem,5.5vw,7.5rem)] leading-[0.87] text-[#F5E6D0]"
+              className="font-display text-[clamp(1.6rem,5.5vw,7.5rem)] leading-[0.87] text-[#F5E6D0]"
               initial={{ y: "108%" }}
               animate={inView ? { y: "0%" } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
@@ -430,7 +430,7 @@ function DeptBlock({
         >
           <div>
             <p className="text-[9px] tracking-[0.42em] uppercase text-[#C9A84C] font-bold mb-2">{dept.num}</p>
-            <p className="font-display text-[#F5E6D0]/55 text-2xl lg:text-3xl">{dept.dept}</p>
+            <p className="font-display text-[#F5E6D0]/55" style={{ fontSize: "clamp(1.25rem,2.5vw,1.875rem)" }}>{dept.dept}</p>
           </div>
           <p className="text-[9px] tracking-[0.25em] uppercase text-[#F5E6D0]/18 lg:mt-4 self-end lg:self-start">
             {dept.roles.length} {dept.roles.length === 1 ? "opening" : "openings"}
@@ -484,8 +484,8 @@ function PitchSection() {
         </motion.div>
 
         {[
-          { text: "PITCH US",  size: "clamp(2.8rem,8vw,11rem)", color: "#F5E6D0" },
-          { text: "ANYWAY.",   size: "clamp(2.8rem,8vw,11rem)", color: "rgba(245,230,208,0.25)" },
+          { text: "PITCH US",  size: "clamp(2rem,8vw,11rem)", color: "#F5E6D0" },
+          { text: "ANYWAY.",   size: "clamp(2rem,8vw,11rem)", color: "rgba(245,230,208,0.25)" },
         ].map((line, i) => (
           <div key={i} className="overflow-hidden">
             <motion.h2
@@ -517,7 +517,7 @@ function PitchSection() {
         >
           <a
             href="mailto:recruitment@tamadamedia.com"
-            className="group relative inline-flex items-center gap-4 px-10 py-5 bg-[#0A0A0A] text-[#F5E6D0] text-[10px] font-bold tracking-[0.24em] uppercase overflow-hidden"
+            className="group relative inline-flex items-center gap-4 px-6 py-4 sm:px-10 sm:py-5 bg-[#0A0A0A] text-[#F5E6D0] text-[10px] font-bold tracking-[0.24em] uppercase overflow-hidden"
           >
             <span className="absolute inset-0 bg-[#F5E6D0] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
             <span className="relative z-10 group-hover:text-[#0A0A0A] transition-colors duration-300">Send Your Work</span>

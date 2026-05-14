@@ -263,9 +263,9 @@ function HeroSection() {
 
           <div className="max-w-[85%] lg:max-w-[70%]">
             {[
-              { text: "YEARS OF",   color: "text-[#F5E6D0]/25", size: "clamp(1.8rem,4vw,5.5rem)" },
-              { text: "BUILDING",   color: "text-[#F5E6D0]",    size: "clamp(3rem,7.5vw,10rem)" },
-              { text: "THE SOUTH.", color: "text-[#C9A84C]",     size: "clamp(3rem,7.5vw,10rem)" },
+              { text: "YEARS OF",   color: "text-[#F5E6D0]/25", size: "clamp(1.4rem,4vw,5.5rem)" },
+              { text: "BUILDING",   color: "text-[#F5E6D0]",    size: "clamp(2rem,7.5vw,10rem)" },
+              { text: "THE SOUTH.", color: "text-[#C9A84C]",     size: "clamp(2rem,7.5vw,10rem)" },
             ].map((line, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.h1
@@ -419,9 +419,9 @@ function OriginSection() {
         {/* Headline — varied sizes for rhythm */}
         <div className="mb-0">
           {[
-            { text: "THE INDUSTRY", color: "rgba(10,10,10,0.12)", size: "clamp(2.8rem,7vw,10rem)" },
-            { text: "LAUGHED.", color: "#C9A84C", size: "clamp(3.5rem,9.5vw,13.5rem)" },
-            { text: "WE BUILT.", color: "#0A0A0A", size: "clamp(3.5rem,9.5vw,13.5rem)" },
+            { text: "THE INDUSTRY", color: "rgba(10,10,10,0.12)", size: "clamp(2rem,7vw,10rem)" },
+            { text: "LAUGHED.", color: "#C9A84C", size: "clamp(2.2rem,9.5vw,13.5rem)" },
+            { text: "WE BUILT.", color: "#0A0A0A", size: "clamp(2.2rem,9.5vw,13.5rem)" },
           ].map((line, i) => (
             <div key={i} className="overflow-hidden">
               <motion.h2
@@ -485,7 +485,7 @@ function OriginSection() {
           >
             <span
               className="font-display text-[#C9A84C] select-none"
-              style={{ fontSize: "8rem", lineHeight: 0.6 }}
+              style={{ fontSize: "clamp(4rem,10vw,8rem)", lineHeight: 0.6 }}
               aria-hidden
             >
               &ldquo;
@@ -531,7 +531,7 @@ function PillarsSection() {
 
         <div className="overflow-hidden mb-16">
           <motion.h2
-            className="font-display text-[clamp(3rem,6.5vw,9rem)] leading-[0.87] text-[#F5E6D0]"
+            className="font-display text-[clamp(2rem,6.5vw,9rem)] leading-[0.87] text-[#F5E6D0]"
             initial={{ y: "108%" }}
             animate={inView ? { y: "0%" } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
@@ -638,7 +638,7 @@ function TimelineSection() {
             </motion.div>
             <div className="overflow-hidden">
               <motion.h2
-                className="font-display text-[clamp(2.5rem,5.5vw,7rem)] leading-[0.87] text-[#F5E6D0]"
+                className="font-display text-[clamp(1.8rem,5.5vw,7rem)] leading-[0.87] text-[#F5E6D0]"
                 initial={{ y: "108%" }} animate={inView ? { y: "0%" } : {}}
                 transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
               >
@@ -766,7 +766,7 @@ function TeamSection() {
             {["250+ PEOPLE.", "2 CITIES."].map((line, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.h2
-                  className={`font-display text-[clamp(3rem,6.5vw,9rem)] leading-[0.87] ${i === 1 ? "text-[#C9A84C]" : "text-[#F5E6D0]"}`}
+                  className={`font-display text-[clamp(2rem,6.5vw,9rem)] leading-[0.87] ${i === 1 ? "text-[#C9A84C]" : "text-[#F5E6D0]"}`}
                   initial={{ y: "108%" }}
                   animate={inView ? { y: "0%" } : {}}
                   transition={{ duration: 0.9, delay: 0.1 + i * 0.12, ease: EASE }}
@@ -822,7 +822,8 @@ function OfficeRow({ office, index, inView }: { office: typeof OFFICES[0]; index
       <span className="absolute bottom-0 left-0 right-0 h-px bg-[#C9A84C] scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
 
       <motion.h3
-        className="font-display text-xl lg:text-3xl relative"
+        className="font-display relative"
+        style={{ fontSize: "clamp(1.2rem,2.5vw,1.875rem)" }}
         animate={{ color: hovered ? "#C9A84C" : "#F5E6D0" }}
         transition={{ duration: 0.25 }}
       >
@@ -956,7 +957,7 @@ function CultureSection() {
         {["WE ARE NOT TRYING", "TO CRACK SOUTH.", "WE ARE SOUTH."].map((line, i) => (
           <div key={i} className="overflow-hidden">
             <motion.h2
-              className="font-display text-[clamp(2.5rem,6vw,8.5rem)] leading-[0.87] text-[#F5E6D0]"
+              className="font-display text-[clamp(1.8rem,6vw,8.5rem)] leading-[0.87] text-[#F5E6D0]"
               initial={{ y: "110%" }}
               animate={inView ? { y: "0%" } : {}}
               transition={{ duration: 0.95, delay: 0.1 + i * 0.12, ease: EASE }}
@@ -1012,7 +1013,7 @@ function CtaSection() {
         {["READY TO BUILD", "SOMETHING BIG?"].map((line, i) => (
           <div key={i} className="overflow-hidden">
             <motion.h2
-              className="font-display text-[clamp(2.5rem,6vw,8rem)] leading-[0.87] text-[#F5E6D0]"
+              className="font-display text-[clamp(1.8rem,6vw,8rem)] leading-[0.87] text-[#F5E6D0]"
               initial={{ y: "110%" }}
               animate={inView ? { y: "0%" } : {}}
               transition={{ duration: 0.9, delay: 0.1 + i * 0.12, ease: EASE }}
@@ -1033,7 +1034,7 @@ function CtaSection() {
         <Link
           href="/contact"
           ref={btnRef as React.Ref<HTMLAnchorElement>}
-          className="relative inline-flex items-center gap-4 px-10 py-5 bg-[#C9A84C] text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase overflow-hidden group"
+          className="relative inline-flex items-center gap-4 px-6 py-4 sm:px-10 sm:py-5 bg-[#C9A84C] text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase overflow-hidden group"
           onMouseMove={onBtnMove}
           onMouseLeave={onBtnLeave}
         >

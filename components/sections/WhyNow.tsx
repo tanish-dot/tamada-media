@@ -58,7 +58,7 @@ function Panel({ panel, index }: { panel: typeof PANELS[0]; index: number }) {
       <div
         className="absolute right-0 bottom-0 font-display leading-none select-none pointer-events-none"
         style={{
-          fontSize: "clamp(14rem, 28vw, 34rem)",
+          fontSize: "clamp(6rem, 28vw, 34rem)",
           color: panel.colorNum,
           lineHeight: 0.85,
           transform: "translate(5%, 18%)",

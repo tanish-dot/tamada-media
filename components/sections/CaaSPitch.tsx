@@ -121,7 +121,7 @@ export default function CaaSPitch() {
             <div className="border-t border-[#F5E6D0]/[0.07]" />
 
             {/* Stats */}
-            <motion.div className="pt-8 grid grid-cols-3 gap-6"
+            <motion.div className="pt-8 grid grid-cols-3 gap-3 lg:gap-6"
               initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.68 }}
             >

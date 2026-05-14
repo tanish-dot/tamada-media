@@ -76,7 +76,7 @@ export default function FinalCTA() {
         >
           <Link
             href="/contact"
-            className="px-10 py-5 bg-[#C9A84C] text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase hover:bg-[#F5E6D0] hover:text-[#C9A84C] transition-all duration-300 inline-flex items-center gap-3 group"
+            className="px-6 py-4 sm:px-10 sm:py-5 bg-[#C9A84C] text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase hover:bg-[#F5E6D0] hover:text-[#C9A84C] transition-all duration-300 inline-flex items-center gap-3 group"
           >
             Start a Conversation
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -85,7 +85,7 @@ export default function FinalCTA() {
           </Link>
           <a
             href={`mailto:${BRAND.email.primary}`}
-            className="px-10 py-5 border border-[#F5E6D0]/20 text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase hover:border-[#4E8CC4] hover:text-[#4E8CC4] hover:bg-[#4E8CC4]/5 transition-all duration-300"
+            className="px-6 py-4 sm:px-10 sm:py-5 border border-[#F5E6D0]/20 text-[#F5E6D0] text-sm font-bold tracking-[0.2em] uppercase hover:border-[#4E8CC4] hover:text-[#4E8CC4] hover:bg-[#4E8CC4]/5 transition-all duration-300"
           >
             Email Us Directly
           </a>

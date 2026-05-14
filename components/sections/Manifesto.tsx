@@ -99,7 +99,7 @@ export default function Manifesto() {
               transition={{ duration: 0.6, delay: 0.5 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
               <span className="font-display text-sm text-[#C9A84C] w-10 shrink-0">{point.number}</span>
-              <h3 className="font-display text-xl lg:text-3xl text-[#F5E6D0] group-hover:text-[#C9A84C] transition-colors duration-300 w-full lg:w-80 shrink-0">
+              <h3 className="font-display text-[clamp(1.1rem,2.2vw,1.875rem)] text-[#F5E6D0] group-hover:text-[#C9A84C] transition-colors duration-300 w-full lg:w-80 shrink-0">
                 {point.title}
               </h3>
               <p className="text-[#F5E6D0]/50 text-sm lg:text-base leading-[1.8] lg:max-w-xl">

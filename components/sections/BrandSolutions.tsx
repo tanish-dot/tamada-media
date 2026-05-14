@@ -93,7 +93,7 @@ export default function BrandSolutions() {
 
           <motion.div
             className="flex gap-px overflow-hidden"
-            style={{ height: "480px" }}
+            style={{ height: "clamp(240px, 45vw, 480px)" }}
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -119,7 +119,7 @@ export default function BrandSolutions() {
                         style={{ minHeight: "80px" }}
                       >
                         <span className="font-display text-center text-[#F5E6D0]/40 group-hover:text-[#F5E6D0] transition-colors duration-300 leading-tight"
-                          style={{ fontSize: "clamp(0.7rem, 1.1vw, 0.95rem)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
+                          style={{ fontSize: "clamp(0.65rem, 1.4vw, 0.95rem)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
                           {brand}
                         </span>
                       </div>

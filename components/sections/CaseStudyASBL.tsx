@@ -74,7 +74,7 @@ export default function CaseStudyASBL() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.85, delay: 0.1, ease: EASE }}
           >
-            <h2 className="font-display text-[clamp(5rem,10vw,13rem)] leading-[0.85] text-[#F5E6D0]">
+            <h2 className="font-display text-[clamp(3rem,10vw,13rem)] leading-[0.85] text-[#F5E6D0]">
               ASBL
             </h2>
             <div className="mt-3 h-[3px] w-16 bg-[#C9A84C]" />
@@ -86,7 +86,7 @@ export default function CaseStudyASBL() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
           >
-            <p className="text-[#F5E6D0]/60 text-base lg:text-lg leading-[1.9] mb-4 max-w-lg">
+            <p className="text-[#F5E6D0]/60 text-sm lg:text-base leading-[1.9] mb-4 max-w-lg">
               {CASE_STUDY_ASBL.headline}
             </p>
             <p className="text-[#F5E6D0]/28 text-sm leading-relaxed max-w-md">
@@ -112,14 +112,14 @@ export default function CaseStudyASBL() {
               <div className="flex items-center gap-5 relative z-10">
                 <div>
                   <p className="text-[#F5E6D0]/20 text-[9px] uppercase tracking-wider mb-2">Before</p>
-                  <p className="font-display text-3xl lg:text-4xl text-[#F5E6D0]/20 line-through decoration-[#C9A84C]/40">
+                  <p className="font-display text-[clamp(1.4rem,3vw,2.5rem)] text-[#F5E6D0]/20 line-through decoration-[#C9A84C]/40">
                     {r.before}
                   </p>
                 </div>
                 <span className="text-[#C9A84C] font-display text-lg">→</span>
                 <div>
                   <p className="text-[#C9A84C] text-[9px] uppercase tracking-wider mb-2">After</p>
-                  <p className="font-display text-3xl lg:text-4xl text-[#C9A84C]">{r.after}</p>
+                  <p className="font-display text-[clamp(1.4rem,3vw,2.5rem)] text-[#C9A84C]">{r.after}</p>
                 </div>
               </div>
             </div>

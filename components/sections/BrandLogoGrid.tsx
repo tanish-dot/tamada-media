@@ -88,7 +88,7 @@ export default function BrandLogoGrid() {
         </div>
 
         {/* Logo grid */}
-        <div className="grid grid-cols-4 sm:grid-cols-7 gap-px bg-[#080808]/[0.08]">
+        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-px bg-[#080808]/[0.08]">
           {BRAND_IMAGES.map((src, i) => (
             <motion.div
               key={src}

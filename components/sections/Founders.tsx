@@ -143,7 +143,7 @@ export default function Founders() {
           >
             <h3
               className="font-display text-[#F5E6D0] leading-[0.9] mb-2"
-              style={{ fontSize: "clamp(1.8rem, 3vw, 3.5rem)" }}
+              style={{ fontSize: "clamp(1.5rem, 3vw, 3.5rem)" }}
             >
               {f.name}
             </h3>

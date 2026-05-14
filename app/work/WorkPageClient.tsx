@@ -113,7 +113,7 @@ export default function WorkPageClient() {
 
               <div className="overflow-hidden mb-1">
                 <motion.h1
-                  className="font-display text-[clamp(5.5rem,13vw,16rem)] leading-[0.83] text-[#F5E6D0]"
+                  className="font-display text-[clamp(3rem,13vw,16rem)] leading-[0.83] text-[#F5E6D0]"
                   initial={{ y: "110%" }}
                   animate={heroInView ? { y: "0%" } : {}}
                   transition={{ duration: 0.85, delay: 0.3, ease: EASE }}
@@ -123,7 +123,7 @@ export default function WorkPageClient() {
               </div>
               <div className="overflow-hidden">
                 <motion.h1
-                  className="font-display text-[clamp(5.5rem,13vw,16rem)] leading-[0.83] text-[#C9A84C]"
+                  className="font-display text-[clamp(3rem,13vw,16rem)] leading-[0.83] text-[#C9A84C]"
                   initial={{ y: "110%" }}
                   animate={heroInView ? { y: "0%" } : {}}
                   transition={{ duration: 0.85, delay: 0.42, ease: EASE }}
@@ -153,7 +153,7 @@ export default function WorkPageClient() {
 
           {/* Stats row */}
           <motion.div
-            className="mt-12 pt-8 border-t border-[#F5E6D0]/[0.07] flex items-center gap-10 lg:gap-16"
+            className="mt-12 pt-8 border-t border-[#F5E6D0]/[0.07] flex flex-wrap items-center gap-6 sm:gap-10 lg:gap-16"
             initial={{ opacity: 0 }} animate={heroInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.9 }}
           >
@@ -387,7 +387,7 @@ function OTTGrid() {
           <p className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] font-bold">OTT Originals</p>
         </div>
         <div className="flex items-end justify-between gap-6">
-          <h2 className="font-display text-[clamp(3rem,6vw,8rem)] leading-[0.88] text-[#0A0A0A]">29+ SHOWS.</h2>
+          <h2 className="font-display text-[clamp(2rem,6vw,8rem)] leading-[0.88] text-[#0A0A0A]">29+ SHOWS.</h2>
           <span className="text-xs text-[#6B6B6B] font-medium tracking-[0.2em] uppercase pb-2">5+ Platforms</span>
         </div>
       </motion.div>
@@ -439,7 +439,7 @@ function BrandedSeriesGrid() {
           <span className="w-5 h-px bg-[#C9A84C] block" />
           <p className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] font-bold">Branded Storytelling</p>
         </div>
-        <h2 className="font-display text-[clamp(3rem,6vw,8rem)] leading-[0.88] text-[#F5E6D0]">
+        <h2 className="font-display text-[clamp(2rem,6vw,8rem)] leading-[0.88] text-[#F5E6D0]">
           BRANDED MICRO DRAMAS
           <br />
           <span className="text-[#F5E6D0]/25">&amp; SHORT SERIES.</span>
@@ -496,7 +496,7 @@ function ChannelNetwork() {
               <span className="w-5 h-px bg-[#C9A84C] block" />
               <p className="text-[10px] tracking-[0.38em] uppercase text-[#C9A84C] font-bold">Channel Network</p>
             </div>
-            <h2 className="font-display leading-[0.88] text-[#F5E6D0]" style={{ fontSize: "clamp(3rem,6vw,8rem)" }}>
+            <h2 className="font-display leading-[0.88] text-[#F5E6D0]" style={{ fontSize: "clamp(2rem,6vw,8rem)" }}>
               750+ CHANNELS.
               <br />
               <span style={{ color: "rgba(245,230,208,0.15)" }}>5 LANGUAGES.</span>
@@ -753,7 +753,7 @@ function NetworkSection() {
         </motion.p>
         <div className="overflow-hidden">
           <motion.h2
-            className="font-display text-[clamp(2.5rem,5vw,7rem)] leading-[0.88] text-[#F5E6D0]"
+            className="font-display text-[clamp(1.8rem,5vw,7rem)] leading-[0.88] text-[#F5E6D0]"
             initial={{ y: "110%" }}
             animate={inView ? { y: "0%" } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: EASE }}

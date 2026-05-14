@@ -265,8 +265,8 @@ function MobileWheel({
                 transition={{ duration: 0.2, ease: EASE }}
               >
                 <p style={{
-                  fontSize: "5.5px",
-                  letterSpacing: "0.28em",
+                  fontSize: "7px",
+                  letterSpacing: "0.2em",
                   color: "#C9A84C",
                   fontWeight: 700,
                   textTransform: "uppercase",

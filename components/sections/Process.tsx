@@ -103,7 +103,7 @@ export default function Process() {
                 <span
                   className="font-display absolute right-0 bottom-0 leading-none select-none pointer-events-none"
                   style={{
-                    fontSize: "clamp(10rem, 18vw, 22rem)",
+                    fontSize: "clamp(5rem, 18vw, 22rem)",
                     color: "rgba(10,10,10,0.05)",
                     lineHeight: 0.85,
                     transform: "translate(8%, 18%)",

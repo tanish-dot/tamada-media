@@ -92,7 +92,7 @@ export default function JoinUs() {
             <div className="shrink-0">
               <div className="overflow-hidden mb-1">
                 <motion.h2 className="font-display text-[#080808] leading-[0.88]"
-                  style={{ fontSize: "clamp(4.5rem, 14vw, 14rem)" }}
+                  style={{ fontSize: "clamp(2.8rem, 14vw, 14rem)" }}
                   initial={{ y: "108%" }} animate={inView ? { y: "0%" } : {}}
                   transition={{ duration: 0.95, delay: 0.08, ease: EASE }}
                 >
@@ -101,7 +101,7 @@ export default function JoinUs() {
               </div>
               <div className="overflow-hidden">
                 <motion.h2 className="font-display leading-[0.88]"
-                  style={{ fontSize: "clamp(4.5rem, 14vw, 14rem)", WebkitTextStroke: "2px #080808", color: "transparent" }}
+                  style={{ fontSize: "clamp(2.8rem, 14vw, 14rem)", WebkitTextStroke: "2px #080808", color: "transparent" }}
                   initial={{ y: "108%" }} animate={inView ? { y: "0%" } : {}}
                   transition={{ duration: 0.95, delay: 0.16, ease: EASE }}
                 >
