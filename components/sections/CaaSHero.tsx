@@ -146,7 +146,7 @@ export default function CaaSHero() {
 
         {/* Stats row */}
         <motion.div
-          className="mt-12 pt-8 border-t border-[#F5E6D0]/[0.07] flex items-center gap-6 sm:gap-10 lg:gap-16 flex-wrap"
+          className="mt-12 pt-8 border-t border-[#F5E6D0]/[0.07] grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-6"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 1.0 }}
@@ -157,9 +157,9 @@ export default function CaaSHero() {
             ["2B+",  "Impressions"],
             ["70K",  "Videos / Month"],
           ].map(([v, l]) => (
-            <div key={l}>
+            <div key={l} className="flex flex-col gap-2">
               <p className="font-display text-[clamp(1.8rem,3vw,3.2rem)] leading-none text-[#F5E6D0]">{v}</p>
-              <p className="text-[8px] tracking-[0.3em] uppercase text-[#F5E6D0]/28 mt-1.5">{l}</p>
+              <p className="text-[9px] tracking-[0.28em] uppercase text-[#F5E6D0]/40 font-semibold">{l}</p>
             </div>
           ))}
         </motion.div>

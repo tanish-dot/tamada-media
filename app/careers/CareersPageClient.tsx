@@ -256,7 +256,7 @@ function HeroSection() {
 
         {/* Stats bar */}
         <motion.div
-          className="pt-10 border-t border-[#F5E6D0]/[0.07] flex flex-wrap gap-6 sm:gap-10 lg:gap-16"
+          className="pt-10 border-t border-[#F5E6D0]/[0.07] grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-6"
           initial={{ opacity: 0 }}
           animate={ready ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 1.0 }}
@@ -267,9 +267,9 @@ function HeroSection() {
             ["26", "Avg. Age"],
             ["Hyderabad", "Head Office"],
           ].map(([v, l]) => (
-            <div key={l}>
+            <div key={l} className="flex flex-col gap-2">
               <p className="font-display text-[clamp(1.6rem,2.8vw,3rem)] leading-none text-[#F5E6D0]">{v}</p>
-              <p className="text-[8px] tracking-[0.3em] uppercase text-[#F5E6D0]/28 mt-1.5">{l}</p>
+              <p className="text-[9px] tracking-[0.28em] uppercase text-[#F5E6D0]/40 font-semibold">{l}</p>
             </div>
           ))}
         </motion.div>
