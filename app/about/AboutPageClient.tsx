@@ -931,25 +931,26 @@ function CultureSection() {
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }}
       />
 
-      {/* Floating native script words */}
-      {FLOATING_SCRIPTS.map((s, i) => (
-        <motion.span
-          key={i}
-          aria-hidden
-          className="absolute font-display pointer-events-none select-none"
-          style={{
-            left: s.left,
-            top: s.top,
-            fontSize: s.size,
-            color: "rgba(245,230,208,0.07)",
-            lineHeight: 1,
-          }}
-          animate={{ y: [0, -18, 0] }}
-          transition={{ duration: s.dur, repeat: Infinity, ease: "easeInOut", delay: s.delay }}
-        >
-          {s.word}
-        </motion.span>
-      ))}
+      {/* Floating native script words — bounded container prevents overflow */}
+      <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
+        {FLOATING_SCRIPTS.map((s, i) => (
+          <motion.span
+            key={i}
+            className="absolute font-display select-none"
+            style={{
+              left: s.left,
+              top: s.top,
+              fontSize: s.size,
+              color: "rgba(245,230,208,0.07)",
+              lineHeight: 1,
+            }}
+            animate={{ y: [0, -18, 0] }}
+            transition={{ duration: s.dur, repeat: Infinity, ease: "easeInOut", delay: s.delay }}
+          >
+            {s.word}
+          </motion.span>
+        ))}
+      </div>
 
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 80% 50%, rgba(0,0,0,0.15) 0%, transparent 70%)" }} />
 
