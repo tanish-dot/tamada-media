@@ -925,14 +925,14 @@ function CultureSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   return (
-    <section ref={ref} className="section-padding bg-[#C9A84C] relative overflow-hidden min-h-[60vh]">
+    <section ref={ref} className="section-padding bg-[#C9A84C] relative overflow-hidden lg:min-h-[60vh]">
       {/* Film grain */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }}
       />
 
-      {/* Floating native script words — bounded container prevents overflow */}
-      <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Floating native script words — desktop only */}
+      <div aria-hidden className="hidden lg:block absolute inset-0 overflow-hidden pointer-events-none">
         {FLOATING_SCRIPTS.map((s, i) => (
           <motion.span
             key={i}
