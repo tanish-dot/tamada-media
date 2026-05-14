@@ -102,19 +102,19 @@ export default function IPCreation() {
             </div>
           </div>
 
-          {/* Stats — stacked vertically on right */}
+          {/* Stats — 2×2 on mobile, vertical column on desktop */}
           <motion.div
-            className="flex flex-row lg:flex-col gap-px bg-[#F5E6D0]/[0.06] lg:min-w-[280px] shrink-0"
+            className="grid grid-cols-2 lg:flex lg:flex-col gap-px bg-[#F5E6D0]/[0.06] lg:min-w-[280px] shrink-0"
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
           >
             {STATS_IP.map((s, i) => (
-              <div key={i} className="bg-[#0E0E0E] px-7 py-5 flex items-center justify-between lg:flex-col lg:items-start lg:gap-1">
-                <p className="text-[9px] tracking-[0.3em] uppercase text-[#F5E6D0]/35 font-medium order-2 lg:order-none">{s.label}</p>
-                <p className="font-display text-[#C9A84C] leading-none" style={{ fontSize: "clamp(2rem,3.5vw,3.5rem)" }}>
+              <div key={i} className="bg-[#0E0E0E] px-5 py-5 lg:px-7 flex flex-col gap-1">
+                <p className="font-display text-[#C9A84C] leading-none" style={{ fontSize: "clamp(1.6rem,3.5vw,3.5rem)" }}>
                   {s.value}{s.suffix}
                 </p>
+                <p className="text-[9px] tracking-[0.3em] uppercase text-[#F5E6D0]/35 font-medium">{s.label}</p>
               </div>
             ))}
           </motion.div>
