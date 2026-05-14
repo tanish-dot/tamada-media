@@ -195,7 +195,7 @@ function HeroSection() {
   }, [mouseX, mouseY]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen bg-[#080808] flex flex-col overflow-hidden">
+    <section ref={sectionRef} className="relative bg-[#080808] flex flex-col overflow-hidden lg:min-h-screen">
       <FilmGrain />
       <CursorSpotlight />
 
@@ -233,7 +233,7 @@ function HeroSection() {
       </motion.div>
 
       {/* Main content */}
-      <div className="relative z-10 flex-1 flex flex-col section-padding">
+      <div className="relative z-10 flex flex-col lg:flex-1 section-padding">
 
         {/* Top row: eyebrow + est. year */}
         <motion.div
@@ -250,7 +250,7 @@ function HeroSection() {
         </motion.div>
 
         {/* Headline — left aligned, pushed to lower half */}
-        <motion.div className="flex-1 flex flex-col justify-start pt-8 lg:justify-end lg:pt-0 pb-8 lg:pb-12" style={{ y: headlineY }}>
+        <motion.div className="flex flex-col lg:flex-1 pt-8 lg:justify-end lg:pt-0 pb-8 lg:pb-12" style={{ y: headlineY }}>
 
           {/* Sweeping red line */}
           <motion.div
@@ -913,12 +913,12 @@ function CultureCard({ metric, index, inView }: { metric: typeof CULTURE_METRICS
 // ── Culture ────────────────────────────────────────────────────────────────────
 
 const FLOATING_SCRIPTS = [
-  { word: "తెలుగు", left: "5%",  top: "8%",  size: "clamp(2.5rem,6vw,5rem)",   dur: 7,  delay: 0 },
-  { word: "தமிழ்",  left: "60%", top: "6%",  size: "clamp(2.2rem,5vw,4.5rem)", dur: 9,  delay: 1.5 },
-  { word: "ಕನ್ನಡ",  left: "68%", top: "55%", size: "clamp(2.5rem,6vw,5.5rem)", dur: 8,  delay: 0.7 },
-  { word: "മലയാളം",left: "5%",  top: "70%", size: "clamp(2rem,4.5vw,4rem)",   dur: 10, delay: 2.2 },
-  { word: "हिन्दी", left: "45%", top: "78%", size: "clamp(2rem,5vw,4.5rem)",   dur: 6,  delay: 1.1 },
-  { word: "SOUTH",  left: "38%", top: "20%", size: "clamp(1.6rem,3vw,3rem)",   dur: 11, delay: 3.0 },
+  { word: "తెలుగు", left: "4%",  top: "8%",  size: "clamp(2rem,5vw,5rem)",    dur: 7,  delay: 0 },
+  { word: "தமிழ்",  left: "52%", top: "6%",  size: "clamp(1.8rem,4vw,4.5rem)", dur: 9,  delay: 1.5 },
+  { word: "ಕನ್ನಡ",  left: "55%", top: "55%", size: "clamp(2rem,5vw,5rem)",    dur: 8,  delay: 0.7 },
+  { word: "മലയാളം",left: "4%",  top: "68%", size: "clamp(1.6rem,4vw,4rem)",  dur: 10, delay: 2.2 },
+  { word: "हिन्दी", left: "38%", top: "76%", size: "clamp(1.6rem,4vw,4.5rem)", dur: 6,  delay: 1.1 },
+  { word: "SOUTH",  left: "34%", top: "20%", size: "clamp(1.2rem,2.5vw,3rem)", dur: 11, delay: 3.0 },
 ];
 
 function CultureSection() {
