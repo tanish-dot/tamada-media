@@ -181,8 +181,8 @@ export default function PlatformPartnerships() {
 
       {/* ── Panels ── */}
       <motion.div
-        className="flex flex-col sm:flex-row gap-2 pb-4"
-        style={{ height: "auto", minHeight: "65vh", paddingLeft: "clamp(1.25rem, 3vw, 3rem)", paddingRight: "clamp(1.25rem, 3vw, 3rem)", paddingBottom: "clamp(1.5rem, 2.5vw, 2.5rem)" }}
+        className="flex flex-col sm:flex-row gap-4 pb-4"
+        style={{ height: "auto", minHeight: "65vh", paddingLeft: "clamp(0.5rem, 1.25vw, 1.5rem)", paddingRight: "clamp(0.5rem, 1.25vw, 1.5rem)", paddingBottom: "clamp(1.5rem, 2.5vw, 2.5rem)" }}
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.7, delay: 0.1 }}
